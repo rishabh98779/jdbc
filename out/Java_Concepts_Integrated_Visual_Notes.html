@@ -246,6 +246,26 @@ into the Swing interface, down through the application commands into the engine,
 the green sensor path from left to right, and finally down into the two persistence columns.
 Every box is a real class; every arrow is a real call, stream write or thread hand-off.</p></div><figure class="portrait"><img src="assets/png/d01_architecture_overview.png" alt="The complete BasinWatch system"><figcaption><b>Diagram 1 — The complete BasinWatch system.</b> Six layers: the operator, the Swing interface on the event-dispatch thread, the engine's command API, the domain and engine layer, the sensor input path with its piped streams, and the two independent persistence columns for files and JDBC.</figcaption></figure>
 
+<h4 class="plain">What that architecture actually looks like on screen</h4>
+
+<p>Every diagram in this book describes code that runs. Before going any further, look at
+what the operator actually sees. The window below is the real BasinWatch application,
+launched from the shaded JAR built by Maven, with a simulation in progress: observations
+streaming, zones escalating to <span class="mono">CRITICAL</span>, and a field response
+dispatched against Marsh End.</p>
+
+<figure class="shot landscape"><img src="assets/shots/shot_response_tab.png" alt="The running BasinWatch application, Response tab"><figcaption><b>Screenshot S1 — The running BasinWatch application, Response tab.</b> Captured from the real application (<span class='mono'>java -jar target/basinwatch-1.0.0.jar</span>). The header carries the brand, the title bar of controls (<i>Pause observations</i>, <i>Advance one interval</i>, <i>Inject storm cell</i>, <i>Save session</i>, <i>Restore session</i>, <i>Export situation report</i>) and the risk summary reading <span class='mono'>6 ZONES · 5 CRITICAL · 1 WARNING · 0 WATCH</span>. The basin map below shows one card per zone with its live water level, rainfall and exposed population. The five tabs along the top of the panel — Response, Operations, Insights, Learn and Database history — are the subjects of Chapters 15 to 16, and each one is a real <span class='mono'>JPanel</span> added to a <span class='mono'>JTabbedPane</span>.</figcaption></figure>
+
+<p>Two details in that screenshot are worth noticing now, because the whole book returns to
+them. First, the risk summary is not painted by the engine: the engine publishes an immutable
+<span class="mono">BasinSnapshot</span>, and a Swing listener copies numbers out of it. Second,
+the button labelled <i>Pause observations</i> means the feed is currently running — the label
+is derived from the engine's state, so the interface and the model cannot disagree.</p>
+<div class="callout c-visual"><span class="tag">VISUAL WALKTHROUGH</span><p>Read Diagram 1 from top to bottom. Follow the arrow from the operator
+into the Swing interface, down through the application commands into the engine, then along
+the green sensor path from left to right, and finally down into the two persistence columns.
+Every box is a real class; every arrow is a real call, stream write or thread hand-off.</p></div>
+
 <h4 class="plain">The six layers, in the order data meets them</h4>
 <ol>
 <li><b>The operator and the interface.</b> <span class="mono">BasinWatchApp.main</span> sets
@@ -1421,7 +1441,7 @@ explicitly, which BasinWatch does with <span class='mono'>FORMAT_VERSION</span>.
 <p>Here is the write side and the read side of one record, side by side. BasinWatch writes a
 header once and then one record per accepted observation.</p>
 <pre class="long"><span class="cm">// --- the header, written once when the archive is created ---</span>
-<span class="kw">static</span> <span class="kw">final</span> <span class="kw">int</span> <span class="ty">MAGIC</span> = 0x42574154;          <span class="cm">// &quot;BWAT&quot;</span>
+<span class="kw">static</span> <span class="kw">final</span> <span class="kw">int</span> <span class="ty">MAGIC</span> = 0x42574152;          <span class="cm">// &quot;BWAR&quot;</span>
 <span class="kw">static</span> <span class="kw">final</span> <span class="kw">int</span> <span class="ty">FORMAT_VERSION</span> = 1;
 
 output.writeInt(<span class="ty">MAGIC</span>);                       <span class="cm">// 4 bytes: identifies the file</span>
@@ -1458,7 +1478,7 @@ output.writeDouble(reading.observedRiseCentimeters()); <span class="cm">// 8 byt
 <p>Four things in those listings are worth naming, because they are the difference between a toy
 binary format and a usable one.</p>
 
-<p><b>A magic number identifies the file.</b> The constant 0x42574154 spells "BWAT" in ASCII. If
+<p><b>A magic number identifies the file.</b> The constant 0x42574152 spells "BWAR" in ASCII. If
 someone points the reader at a different file, the first read fails immediately with a clear
 message rather than producing nonsense.</p>
 
@@ -1885,7 +1905,18 @@ succeeded. If the process dies mid-save, the previous good snapshot is still int
 size check, before the stream is even opened. Gate two is the filter, which runs on every class the
 stream tries to construct. Gate three is the version check, immediately after the header. Gate four
 is <span class='mono'>snapshot.validate()</span>, after the object exists. A file must pass all four
-to be accepted.</p></div>
+to be accepted.</p></div><figure class="shot landscape"><img src="assets/shots/shot_save_dialog.png" alt="Choosing a destination for a serialized session"><figcaption><b>Screenshot S4 — Choosing a destination for a serialized session.</b> The <i>Save session</i> button opens a real <span class='mono'>JFileChooser</span> whose file filter is <span class='mono'>BasinWatch session (*.bws)</span> and whose suggested name is <span class='mono'>basin-session.bws</span>. Confirming writes through <span class='mono'>SnapshotStore.save</span>: the bytes go to a temporary file first and the real file is replaced only after a successful close, which is the atomic-replacement pattern described above. The resulting file begins with the bytes <span class='mono'>AC ED 00 05</span> — the standard Java serialization magic number — followed by the stream header and the class descriptor for <span class='mono'>com.basinwatch.io.SessionSnapshot</span>.</figcaption></figure>
+<p>You can verify the format claim yourself, and it is a good habit. Running
+<span class="mono">xxd basin-session.bws | head -3</span> on a real save produced by the application
+shows:</p>
+<pre class="long">00000000: aced 0005 7372 0021 636f 6d2e 6261 7369  ....sr.!com.basi
+00000010: 6e77 6174 6368 2e69 6f2e 5365 7373 696f  nwatch.io.Sessio
+00000020: 6e53 6e61 7073 686f 7400 0000 0000 0000  nSnapshot.......</pre><div class="codecap">output of xxd on a real BasinWatch session save — the aced0005 magic number and the SessionSnapshot class descriptor.</div><div class="callout c-connect"><span class="tag">CONNECTION TO ANOTHER CONCEPT</span><p>The same <span class='mono'>AC ED 00 05</span> header appears in every Java
+serialization stream, from a student exercise to a production cache. It is also why serialization is a
+security topic: any process that deserializes an untrusted stream is willing to construct whatever
+classes that stream names. The <span class='mono'>ObjectInputFilter</span> above is the modern defence,
+and it is why the book shows the filter rather than treating serialization as a purely mechanical
+topic.</p></div>
 <h3><span class="n">8.7</span>What validation has to check</h3>
 <p>Because deserialization skips constructors, the restored object can be structurally valid and
 semantically impossible. The validation method is where the invariants are re-established.</p>
@@ -1963,10 +1994,12 @@ without touching the file system. It is the file-system equivalent of a schema.<
 <p>This is the human-facing record. It is a character stream, it appends, and it flushes on a
 policy.</p>
 <pre class="long">data/logs/operations.log
-2026-03-04<span class="ty">T09</span>:15:22.104Z | <span class="ty">OBSERVATION</span> | <span class="ty">MIL</span> rainfall 12.4 mm, rise 3.1 cm
-2026-03-04<span class="ty">T09</span>:15:22.109Z | <span class="ty">RISK</span> | <span class="ty">Risk</span> increased: <span class="ty">MIL</span> <span class="ty">WATCH</span> -&gt; <span class="ty">WARNING</span>
-2026-03-04<span class="ty">T09</span>:15:31.882Z | <span class="ty">ALLOCATED</span> | <span class="ty">Deploy</span> portable pump -&gt; <span class="ty">NOR</span> using <span class="ty">PUMP</span> x1, <span class="ty">FIELD_CREW</span> x1
-2026-03-04<span class="ty">T09</span>:15:39.440Z | <span class="ty">COMPLETE</span> | <span class="ty">Reinforce</span> levee on <span class="ty">UPR</span> finished; levee reinforced</pre><div class="codecap">from BasinWatch — the actual line format written by OperationalJournal.</div>
+2026-10-18T18:25:45.551894012Z | SYSTEM | BasinWatch opened
+2026-10-18T18:26:29.394373823Z | SYSTEM | Sensor network connected
+2026-10-18T18:26:29.396289783Z | OBSERVATION | Mill Quarter · 1.37 m · Routine · rain 7.5 mm
+2026-10-18T18:26:32.401882145Z | OBSERVATION | Upper Weir · 2.04 m · Watch · rain 11.2 mm
+2026-10-18T18:28:37.333076452Z | DISPATCH REQUEST | BW-0001 dispatched · Deploy portable pump · Marsh End
+2026-10-18T18:37:10.011962040Z | OBSERVATION | Upper Weir · 8.00 m · Critical · rain 15.8 mm</pre><div class="codecap">from BasinWatch — the actual line format written by OperationalJournal. This is verbatim output from a real session, not a reconstruction. The three categories the project uses are SYSTEM, OBSERVATION and DISPATCH REQUEST.</div>
 <p>Four properties make this file useful, and each was a decision.</p>
 
 <p><b>The timestamp is ISO-8601 with a Z suffix.</b> That is
@@ -1988,18 +2021,20 @@ want after a crash.</p>
 <p>Where the log is for reading, the archive is for measurement. It stores exactly what each station
 reported, in a format that cannot drift.</p>
 <pre class="long">data/archive/sensors.bin
-[ 4 bytes ] magic     0x42574154  (&quot;<span class="ty">BWAT</span>&quot;)
+[ 4 bytes ] magic     0x42574152  (&quot;<span class="ty">BWAR</span>&quot;)
 [ 4 bytes ] version   1
    <span class="cm">--- one record per accepted observation ---</span>
 [ 8 bytes ] tick                    <span class="kw">long</span>
 [ 2+n     ] stationId               <span class="ty">UTF</span>
 [ 2+n     ] zoneId                  <span class="ty">UTF</span>
 [ 8 bytes ] rainfallMillimeters     <span class="kw">double</span>
-[ 8 bytes ] observedRiseCentimeters <span class="kw">double</span></pre><div class="codecap">from BasinWatch — the sensor archive layout, as written by SensorArchive.</div><div class="callout c-visual"><span class="tag">VISUAL WALKTHROUGH</span><p>Count the bytes of a typical record and you get a feel for why the format is
-compact. A tick is 8 bytes. Two short identifiers, "MIL-ST-2" and "MIL", cost 2+7 and 2+3, so 14
-bytes. Two doubles cost 16. The whole record is 38 bytes, plus the 8-byte header for the first one.
-A text version of the same record would be roughly 45 characters and would need parsing and
-locale-independent number formatting to read back.</p></div>
+[ 8 bytes ] observedRiseCentimeters <span class="kw">double</span></pre><div class="codecap">from BasinWatch — the sensor archive layout, as written by SensorArchive.</div><div class="callout c-visual"><span class="tag">VISUAL WALKTHROUGH</span><p>Count the bytes of a real record and you get a feel for why the format is
+compact. A tick is 8 bytes. The two identifiers the simulated feed uses are
+<span class='mono'>G-UPR</span> and <span class='mono'>UPR</span>, costing 2+5 and 2+3 bytes, so 12.
+Two doubles cost 16. The whole record is 36 bytes, plus the 8-byte header once at the start of the
+file. A text version of the same record would be roughly 45 characters and would need parsing and
+locale-independent number formatting to read back — and it could not distinguish a
+<span class='mono'>double</span> from an <span class='mono'>int</span> without a convention.</p></div>
 <h3><span class="n">9.5</span>The session snapshot</h3>
 <p>The snapshot is the only artefact that can bring the application back to where it was. It is
 written on request, and automatically on a clean shutdown, into
@@ -2028,31 +2063,39 @@ serialization constraints that plain final classes avoid. The DTO is a boundary 
 objects should be explicit.</p></div>
 <h3><span class="n">9.6</span>Reports</h3>
 <p>A report is a document, not a record. It is written once, read once, and never parsed.</p>
-<pre class="long"><span class="ty">BASINWATCH</span> · <span class="ty">SITUATION</span> <span class="ty">REPORT</span>
-<span class="ty">Generated</span>: 2026-03-04<span class="ty">T09</span>:16:02.331Z
-<span class="ty">Simulation</span> tick: 214
+<pre class="long">BASINWATCH · SITUATION REPORT
+Generated: 2026-10-18T18:30:50.581292677Z
+Simulation interval: 188
 
-<span class="ty">ZONE</span> <span class="ty">CONDITIONS</span>
-  <span class="ty">MIL</span>  <span class="ty">Middle</span> <span class="ty">Basin</span>     2.71 m  <span class="ty">WARNING</span>   42 residents   12.4 mm last interval
-  <span class="ty">UPR</span>  <span class="ty">Upper</span> <span class="ty">Reach</span>      3.62 m  <span class="ty">CRITICAL</span>  18 residents    9.8 mm last interval
-  ...
+ZONE CONDITIONS
+UPR | Upper Weir | 5.44 m | 12.9 mm rain | Critical | 1800 exposed
+MIL | Mill Quarter | 5.83 m | 3.0 mm rain | Critical | 5200 exposed
+NOR | Northbank | 5.37 m | 9.2 mm rain | Critical | 2400 exposed
+OLD | Old Market | 5.52 m | 14.9 mm rain | Critical | 7100 exposed
+MAR | Marsh End | 4.45 m | 4.8 mm rain | Critical | 1100 exposed
+SOU | South Reach | 5.66 m | 8.5 mm rain | Critical | 3100 exposed
 
-<span class="ty">RESOURCE</span> <span class="ty">BOARD</span>
-  <span class="ty">PUMP</span>            available 2 of 4
-  <span class="ty">FIELD_CREW</span>      available 1 of 3
-  ...
+AVAILABLE RESPONSE RESOURCES
+Portable pumps: 3
+Levee crews: 3
+Supply trucks: 2
+Evacuation vehicles: 2
+Field crews: 4
 
-<span class="ty">ACTIVE</span> <span class="ty">MISSIONS</span>
-  M-0007  <span class="ty">Deploy</span> portable pump -&gt; <span class="ty">NOR</span>   started tick 208, completes tick 216
+RESPONSE OPERATIONS
+BW-0001 | Deploy portable pump | MAR | Completed | 100%
 
-<span class="ty">RECENT</span> <span class="ty">ACTIVITY</span>
-  09:15:22  <span class="ty">OBSERVATION</span>  <span class="ty">MIL</span> rainfall 12.4 mm, rise 3.1 cm
-  ...</pre><div class="codecap">from BasinWatch — the report structure produced by ReportWriter.</div>
+RECENT ACTIVITY
+18:30:17  SENSOR  Northbank · 4.82 m · Critical · rain 3.0 mm
+18:30:17  SENSOR  Old Market · 4.96 m · Critical · rain 14.6 mm
+18:30:17  SENSOR  Marsh End · 3.97 m · Critical · rain 10.3 mm
+18:30:17  SYSTEM  Simulation interval 166
+18:30:18  SENSOR  Mill Quarter · 5.38 m · Critical · rain 4.7 mm</pre><div class="codecap">from BasinWatch — the exact structure produced by ReportWriter.write. This is verbatim output, not a reconstruction.</div>
 <p>The report duplicates information that exists elsewhere, and that is correct. Its value is that it
 is complete, self-contained and readable without the application. An operator can attach it to an
 incident note; a reviewer can read it a year later. A format optimised for machine reading would be
 worse at exactly that job.</p>
-<figure class="landscape"><img src="assets/png/d09_io_class_responsibilities.png" alt="Which class uses which stream, and why"><figcaption><b>Diagram 12 — Which class uses which stream, and why.</b> Every stream class in the project mapped to the class that uses it and the reason that stream was the right choice. The mapping is the argument of this chapter in one picture.</figcaption></figure>
+<figure class="shot landscape"><img src="assets/shots/shot_report_dialog.png" alt="Exporting a situation report from the running application"><figcaption><b>Screenshot S5 — Exporting a situation report from the running application.</b> Clicking <i>Export situation report</i> calls <span class='mono'>engine.exportReport()</span>, which returns a <span class='mono'>CompletableFuture&lt;Path&gt;</span>. The write happens off the event-dispatch thread and the confirmation above appears only once the future completes, showing the real path <span class='mono'>/tmp/bwdata2/data/reports/basin-status-20261018-183050-0513e2c7.txt</span>. The filename embeds the timestamp and a short random suffix, which is why two reports generated in the same second still get distinct names. Notice that the dialog is modal but the application was never frozen: the interface stayed responsive while the file was written, because the work was submitted rather than performed on the UI thread.</figcaption></figure><figure class="landscape"><img src="assets/png/d09_io_class_responsibilities.png" alt="Which class uses which stream, and why"><figcaption><b>Diagram 12 — Which class uses which stream, and why.</b> Every stream class in the project mapped to the class that uses it and the reason that stream was the right choice. The mapping is the argument of this chapter in one picture.</figcaption></figure>
 <h3><span class="n">9.7</span>The four mechanisms side by side</h3>
 <table class="big"><caption><b>Table 9.2</b> — The four file mechanisms compared on the properties that matter.</caption><thead><tr><th></th><th>Operational log</th><th>Sensor archive</th><th>Session snapshot</th><th>Report</th></tr></thead><tbody><tr><td>Stream family</td><td>character (Writer)</td><td>byte (DataOutputStream)</td><td>byte (ObjectOutputStream)</td><td>character (Writer)</td></tr><tr><td>Unit of data</td><td>one line per event</td><td>one fixed record per observation</td><td>one object graph</td><td>one document</td></tr><tr><td>Open mode</td><td>append</td><td>append, header if fresh</td><td>replace, via temporary file</td><td>replace, new name</td></tr><tr><td>Reader</td><td>a person</td><td>the program</td><td>the program</td><td>a person</td></tr><tr><td>Can restore state?</td><td>no</td><td>no</td><td>yes</td><td>no</td></tr><tr><td>Can be queried?</td><td>with text tools</td><td>only by the program</td><td>no</td><td>no</td></tr><tr><td>Versioned?</td><td>no — append-only</td><td>yes, in the header</td><td>yes, before the object</td><td>no</td></tr><tr><td>Failure policy</td><td>collect and report at the end</td><td>worker thread reports</td><td>propagate; the temp file is discarded</td><td>propagate to the caller</td></tr></tbody></table>
 <h3><span class="n">9.8</span>Why not one file for everything</h3>
@@ -2604,7 +2647,8 @@ time, and <span class="mono">recorded_at</span> is stored as ISO-8601 text so th
 matches chronological ordering — the same choice the log file makes.</p>
 
 <p><b><span class='mono'>missions.id</span> is the primary key and is text.</b> The application already
-generates identifiers such as <span class="mono">M-0007</span>, so the database uses them rather than
+generates identifiers such as <span class="mono">BW-0001</span> — <span class="mono">"BW-"</span>
+followed by a four-digit zero-padded sequence — so the database uses them rather than
 inventing a second identity. This is what lets <span class="mono">resource_usage.mission_id</span>
 refer to a mission.</p>
 
@@ -2666,6 +2710,11 @@ though it had taken effect.</p></div>
 <i>immediately</i> with an empty list, so the caller's callback runs normally and simply shows no
 history. And the actual query runs on the database thread, so the future completes on that thread —
 which is why the interface's callback must hop back to the event-dispatch thread.</p>
+<figure class="shot landscape"><img src="assets/shots/shot_database_records.png" alt="The Database history tab reading real rows from SQLite"><figcaption><b>Screenshot S2 — The Database history tab reading real rows from SQLite.</b> The same query seen from the operator's side. The status line reads <span class='mono'>200 recent record(s) · 0 database write(s) pending</span> and the table below it is populated with genuine rows: <span class='mono'>SENSOR</span> entries with their timestamp, zone code and a rendered detail string such as <span class='mono'>4.38 m water</span>. Each visible cell came out of a <span class='mono'>ResultSet</span> via <span class='mono'>OperationalEventRepository.loadRecent</span> and was copied into a <span class='mono'>HistoryTableModel</span> on the event-dispatch thread. The category selector on the left chooses between sensor readings, response records and missions, which is why <span class='mono'>DatabaseHistoryType</span> exists as an enum.</figcaption></figure>
+<p>Nothing in that table is hard-coded for the screenshot. The rows were written by the running
+simulation, stored in <span class="mono">basinwatch.db</span>, read back through JDBC and mapped into
+the table model. If the SQLite file is deleted and the application restarted, the same panel reports
+that history is unavailable and shows an empty table — the rest of the console keeps working.</p>
 <pre class="long"><span class="kw">public</span> <span class="ty">List</span>&lt;<span class="ty">DatabaseHistoryEntry</span>&gt; loadRecent(<span class="kw">int</span> <span class="kw">limit</span>) <span class="kw">throws</span> <span class="ty">SQLException</span> {
     <span class="ty">String</span> sql = &quot;&quot;&quot;
             <span class="kw">SELECT</span> occurred_at <span class="kw">AS</span> at, event_type <span class="kw">AS</span> type, zone_id <span class="kw">AS</span> zone, detail <span class="kw">AS</span> detail
@@ -2760,7 +2809,7 @@ add(split, <span class="ty">BorderLayout</span>.CENTER);</pre>
 <div class="codecap"><b>Listing 15.1</b> — from BasinWatch, <span class="mono">app/MainFrame.java</span></div>
 <p>Read the composition: the window is a border layout, the toolbar and status bar take the fixed north
 and south regions, and the split pane fills the centre. The split pane divides the centre horizontally,
-giving 45 per cent of extra space to the map when the window is resized.</p></div>
+giving 45 per cent of extra space to the map when the window is resized.</p></div><figure class="shot landscape"><img src="assets/shots/shot_operations_tab.png" alt="The Operations tab, showing a completed field response"><figcaption><b>Screenshot S3 — The Operations tab, showing a completed field response.</b> The panel on the right is a <span class='mono'>JTabbedPane</span>; this is its second card. The heading reads <i>Field operations</i> with the note <i>Assigned work advances with observation intervals</i>, and the list below shows mission <span class='mono'>BW-0001 · Deploy portable pump</span> against zone <span class='mono'>MAR</span> with status <i>Completed</i>. That mission row is the end of a real chain: a click on the <i>Dispatch response</i> button became a <span class='mono'>DispatchRequest</span> event, which the engine accepted, processed on the next tick, and wrote to SQLite as a single transaction across the <span class='mono'>missions</span>, <span class='mono'>resource_usage</span> and <span class='mono'>operational_events</span> tables (Chapter 13). The zone cards on the left are unchanged by the tab switch — they belong to the map panel, which is outside the tabbed pane.</figcaption></figure>
 <h3><span class="n">15.4</span>Events and listeners</h3>
 <p>An event is an object describing something that happened. A listener is an object that wants to be
 told. Registering a listener connects the two.</p>
@@ -3241,16 +3290,16 @@ clause is what distinguishes an answer that has read the pom from one that has n
 <p>XML is a way of writing structured data as text. Everything in it is either an <b>element</b> with a
 name, or <b>text</b> inside an element. Elements nest, forming a tree.</p>
 <pre class="long">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;basin name=&quot;Northreach&quot; revision=&quot;3&quot;&gt;
-    &lt;zone id=&quot;UPR&quot; waterLevelMeters=&quot;3.62&quot;&gt;
-        &lt;name&gt;Upper Reach&lt;/name&gt;
-        &lt;residents&gt;18&lt;/residents&gt;
+&lt;basin name=&quot;BasinWatch&quot; revision=&quot;3&quot;&gt;
+    &lt;zone id=&quot;UPR&quot; waterLevelMeters=&quot;5.44&quot;&gt;
+        &lt;name&gt;Upper Weir&lt;/name&gt;
+        &lt;residents&gt;1800&lt;/residents&gt;
     &lt;/zone&gt;
-    &lt;zone id=&quot;MIL&quot; waterLevelMeters=&quot;2.71&quot;&gt;
-        &lt;name&gt;Middle Basin&lt;/name&gt;
-        &lt;residents&gt;42&lt;/residents&gt;
+    &lt;zone id=&quot;MIL&quot; waterLevelMeters=&quot;5.83&quot;&gt;
+        &lt;name&gt;Mill Quarter&lt;/name&gt;
+        &lt;residents&gt;5200&lt;/residents&gt;
     &lt;/zone&gt;
-&lt;/basin&gt;</pre><div class="codecap">illustrative — the same zone data the project holds in Java, expressed as XML</div><table class="big"><caption><b>Table 18.1</b> — XML terminology.</caption><thead><tr><th>Term</th><th>Meaning</th><th>In the example</th></tr></thead><tbody><tr><td>Element</td><td>A labelled node with a start tag and an end tag</td><td><span class='mono'>&lt;zone&gt;…&lt;/zone&gt;</span></td></tr><tr><td>Attribute</td><td>A name-value pair inside a start tag</td><td><span class='mono'>id="UPR"</span></td></tr><tr><td>Text content</td><td>Characters between tags</td><td><span class='mono'>Upper Reach</span></td></tr><tr><td>Root element</td><td>The single outermost element</td><td><span class='mono'>&lt;basin&gt;</span></td></tr><tr><td>Well-formed</td><td>Every tag closed, correctly nested, one root, quoted attributes</td><td>The example is well-formed</td></tr><tr><td>Valid</td><td>Well-formed <i>and</i> conforming to a schema</td><td>A separate question — see below</td></tr></tbody></table><div class="callout c-distinct"><span class="tag">IMPORTANT DISTINCTION</span><p><b>Well-formed and valid are different things.</b> A document is
+&lt;/basin&gt;</pre><div class="codecap">illustrative — the real zone identifiers and exposed populations the project holds in Java (domain/BasinModel.java), expressed as XML. BasinWatch itself does not read or write XML; this shows the data in a second notation.</div><table class="big"><caption><b>Table 18.1</b> — XML terminology.</caption><thead><tr><th>Term</th><th>Meaning</th><th>In the example</th></tr></thead><tbody><tr><td>Element</td><td>A labelled node with a start tag and an end tag</td><td><span class='mono'>&lt;zone&gt;…&lt;/zone&gt;</span></td></tr><tr><td>Attribute</td><td>A name-value pair inside a start tag</td><td><span class='mono'>id="UPR"</span></td></tr><tr><td>Text content</td><td>Characters between tags</td><td><span class='mono'>Upper Weir</span></td></tr><tr><td>Root element</td><td>The single outermost element</td><td><span class='mono'>&lt;basin&gt;</span></td></tr><tr><td>Well-formed</td><td>Every tag closed, correctly nested, one root, quoted attributes</td><td>The example is well-formed</td></tr><tr><td>Valid</td><td>Well-formed <i>and</i> conforming to a schema</td><td>A separate question — see below</td></tr></tbody></table><div class="callout c-distinct"><span class="tag">IMPORTANT DISTINCTION</span><p><b>Well-formed and valid are different things.</b> A document is
 <i>well-formed</i> if it follows XML's syntax rules: tags match, nesting is correct, there is exactly one
 root. It is <i>valid</i> if it also conforms to a schema that says which elements may appear, in what
 order, with what types. Every valid document is well-formed; a well-formed document need not be

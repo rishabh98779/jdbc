@@ -276,23 +276,23 @@ name, or <b>text</b> inside an element. Elements nest, forming a tree.</p>
 """)
 
 B18.append(code('''<?xml version="1.0" encoding="UTF-8"?>
-<basin name="Northreach" revision="3">
-    <zone id="UPR" waterLevelMeters="3.62">
-        <name>Upper Reach</name>
-        <residents>18</residents>
+<basin name="BasinWatch" revision="3">
+    <zone id="UPR" waterLevelMeters="5.44">
+        <name>Upper Weir</name>
+        <residents>1800</residents>
     </zone>
-    <zone id="MIL" waterLevelMeters="2.71">
-        <name>Middle Basin</name>
-        <residents>42</residents>
+    <zone id="MIL" waterLevelMeters="5.83">
+        <name>Mill Quarter</name>
+        <residents>5200</residents>
     </zone>
-</basin>''', "illustrative — the same zone data the project holds in Java, expressed as XML", lang="none"))
+</basin>''', "illustrative — the real zone identifiers and exposed populations the project holds in Java (domain/BasinModel.java), expressed as XML. BasinWatch itself does not read or write XML; this shows the data in a second notation.", lang="none"))
 
 B18.append(table(
   ["Term", "Meaning", "In the example"],
   [
     ["Element", "A labelled node with a start tag and an end tag", "<span class='mono'>&lt;zone&gt;…&lt;/zone&gt;</span>"],
     ["Attribute", "A name-value pair inside a start tag", "<span class='mono'>id=\"UPR\"</span>"],
-    ["Text content", "Characters between tags", "<span class='mono'>Upper Reach</span>"],
+    ["Text content", "Characters between tags", "<span class='mono'>Upper Weir</span>"],
     ["Root element", "The single outermost element", "<span class='mono'>&lt;basin&gt;</span>"],
     ["Well-formed", "Every tag closed, correctly nested, one root, quoted attributes", "The example is well-formed"],
     ["Valid", "Well-formed <i>and</i> conforming to a schema", "A separate question — see below"],

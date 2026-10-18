@@ -1022,7 +1022,8 @@ time, and <span class="mono">recorded_at</span> is stored as ISO-8601 text so th
 matches chronological ordering — the same choice the log file makes.</p>
 
 <p><b><span class='mono'>missions.id</span> is the primary key and is text.</b> The application already
-generates identifiers such as <span class="mono">M-0007</span>, so the database uses them rather than
+generates identifiers such as <span class="mono">BW-0001</span> — <span class="mono">"BW-"</span>
+followed by a four-digit zero-padded sequence — so the database uses them rather than
 inventing a second identity. This is what lets <span class="mono">resource_usage.mission_id</span>
 refer to a mission.</p>
 
@@ -1117,6 +1118,24 @@ B14.append("""
 <i>immediately</i> with an empty list, so the caller's callback runs normally and simply shows no
 history. And the actual query runs on the database thread, so the future completes on that thread —
 which is why the interface's callback must hop back to the event-dispatch thread.</p>
+""")
+
+B14.append(screenshot("shot_database_records", "S2", "The Database history tab reading real rows from SQLite",
+"The same query seen from the operator's side. The status line reads "
+"<span class='mono'>200 recent record(s) · 0 database write(s) pending</span> and the table below it "
+"is populated with genuine rows: <span class='mono'>SENSOR</span> entries with their timestamp, "
+"zone code and a rendered detail string such as <span class='mono'>4.38 m water</span>. "
+"Each visible cell came out of a <span class='mono'>ResultSet</span> via "
+"<span class='mono'>OperationalEventRepository.loadRecent</span> and was copied into a "
+"<span class='mono'>HistoryTableModel</span> on the event-dispatch thread. The category selector "
+"on the left chooses between sensor readings, response records and missions, which is why "
+"<span class='mono'>DatabaseHistoryType</span> exists as an enum."))
+
+B14.append("""
+<p>Nothing in that table is hard-coded for the screenshot. The rows were written by the running
+simulation, stored in <span class="mono">basinwatch.db</span>, read back through JDBC and mapped into
+the table model. If the SQLite file is deleted and the application restarted, the same panel reports
+that history is unavailable and shows an empty table — the rest of the console keeps working.</p>
 """)
 
 B14.append(code('''public List<DatabaseHistoryEntry> loadRecent(int limit) throws SQLException {

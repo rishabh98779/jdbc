@@ -119,6 +119,19 @@ add(split, <span class="ty">BorderLayout</span>.CENTER);</pre>
 and south regions, and the split pane fills the centre. The split pane divides the centre horizontally,
 giving 45 per cent of extra space to the map when the window is resized.</p>"""))
 
+B15.append(screenshot("shot_operations_tab", "S3", "The Operations tab, showing a completed field response",
+"The panel on the right is a <span class='mono'>JTabbedPane</span>; this is its second card. "
+"The heading reads <i>Field operations</i> with the note <i>Assigned work advances with observation "
+"intervals</i>, and the list below shows mission <span class='mono'>BW-0001 · Deploy portable pump</span> "
+"against zone <span class='mono'>MAR</span> with status <i>Completed</i>. That mission row is the "
+"end of a real chain: a click on the <i>Dispatch response</i> button became a "
+"<span class='mono'>DispatchRequest</span> event, which the engine accepted, processed on the next "
+"tick, and wrote to SQLite as a single transaction across the <span class='mono'>missions</span>, "
+"<span class='mono'>resource_usage</span> and <span class='mono'>operational_events</span> tables "
+"(Chapter 13). The zone cards on the left are "
+"unchanged by the tab switch — they belong to the map panel, which is outside the tabbed pane.",
+"landscape"))
+
 B15.append("""
 <h3><span class="n">15.4</span>Events and listeners</h3>
 <p>An event is an object describing something that happened. A listener is an object that wants to be
