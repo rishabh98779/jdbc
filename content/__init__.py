@@ -3,6 +3,7 @@ import html as _html
 import re
 
 PNG = "assets/png"
+SHOTS = "assets/shots"
 
 JAVA_KW = {
     "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char",
@@ -125,6 +126,16 @@ def figure(name: str, number: str, title: str, caption: str = "",
     cap = (f"<b>Diagram {number} — {title}.</b> {caption}" if caption
            else f"<b>Diagram {number} — {title}.</b>")
     return (f'<figure class="{kind}"><img src="{src}" '
+            f'alt="{_html.escape(title)}"><figcaption>{cap}</figcaption></figure>')
+
+
+def screenshot(name: str, number: str, title: str, caption: str = "",
+               kind: str = "landscape") -> str:
+    """A figure built from a screenshot of the real running application."""
+    src = f"{SHOTS}/{name}.png"
+    cap = (f"<b>Screenshot {number} — {title}.</b> {caption}" if caption
+           else f"<b>Screenshot {number} — {title}.</b>")
+    return (f'<figure class="shot {kind}"><img src="{src}" '
             f'alt="{_html.escape(title)}"><figcaption>{cap}</figcaption></figure>')
 
 

@@ -778,7 +778,7 @@ header once and then one record per accepted observation.</p>
 """)
 
 B6.append(code('''// --- the header, written once when the archive is created ---
-static final int MAGIC = 0x42574154;          // "BWAT"
+static final int MAGIC = 0x42574152;          // "BWAR"
 static final int FORMAT_VERSION = 1;
 
 output.writeInt(MAGIC);                       // 4 bytes: identifies the file
@@ -820,7 +820,7 @@ B6.append("""
 <p>Four things in those listings are worth naming, because they are the difference between a toy
 binary format and a usable one.</p>
 
-<p><b>A magic number identifies the file.</b> The constant 0x42574154 spells "BWAT" in ASCII. If
+<p><b>A magic number identifies the file.</b> The constant 0x42574152 spells "BWAR" in ASCII. If
 someone points the reader at a different file, the first read fails immediately with a clear
 message rather than producing nonsense.</p>
 
@@ -1469,6 +1469,36 @@ stream tries to construct. Gate three is the version check, immediately after th
 is <span class='mono'>snapshot.validate()</span>, after the object exists. A file must pass all four
 to be accepted.</p>"""))
 
+B8.append(screenshot("shot_save_dialog", "S4", "Choosing a destination for a serialized session",
+"The <i>Save session</i> button opens a real <span class='mono'>JFileChooser</span> whose file filter "
+"is <span class='mono'>BasinWatch session (*.bws)</span> and whose suggested name is "
+"<span class='mono'>basin-session.bws</span>. Confirming writes through "
+"<span class='mono'>SnapshotStore.save</span>: the bytes go to a temporary file first and the real "
+"file is replaced only after a successful close, which is the atomic-replacement pattern described "
+"above. The resulting file begins with the bytes "
+"<span class='mono'>AC ED 00 05</span> — the standard Java serialization magic number — followed by "
+"the stream header and the class descriptor for "
+"<span class='mono'>com.basinwatch.io.SessionSnapshot</span>."))
+
+B8.append("""
+<p>You can verify the format claim yourself, and it is a good habit. Running
+<span class="mono">xxd basin-session.bws | head -3</span> on a real save produced by the application
+shows:</p>
+""")
+
+B8.append(code('''00000000: aced 0005 7372 0021 636f 6d2e 6261 7369  ....sr.!com.basi
+00000010: 6e77 6174 6368 2e69 6f2e 5365 7373 696f  nwatch.io.Sessio
+00000020: 6e53 6e61 7073 686f 7400 0000 0000 0000  nSnapshot.......''',
+"output of xxd on a real BasinWatch session save — the aced0005 magic number and the SessionSnapshot class descriptor.",
+lang="text"))
+
+B8.append(connect("""<p>The same <span class='mono'>AC ED 00 05</span> header appears in every Java
+serialization stream, from a student exercise to a production cache. It is also why serialization is a
+security topic: any process that deserializes an untrusted stream is willing to construct whatever
+classes that stream names. The <span class='mono'>ObjectInputFilter</span> above is the modern defence,
+and it is why the book shows the filter rather than treating serialization as a purely mechanical
+topic.</p>"""))
+
 B8.append("""
 <h3><span class="n">8.7</span>What validation has to check</h3>
 <p>Because deserialization skips constructors, the restored object can be structurally valid and
@@ -1630,11 +1660,14 @@ policy.</p>
 """)
 
 B9.append(code('''data/logs/operations.log
-2026-03-04T09:15:22.104Z | OBSERVATION | MIL rainfall 12.4 mm, rise 3.1 cm
-2026-03-04T09:15:22.109Z | RISK | Risk increased: MIL WATCH -> WARNING
-2026-03-04T09:15:31.882Z | ALLOCATED | Deploy portable pump -> NOR using PUMP x1, FIELD_CREW x1
-2026-03-04T09:15:39.440Z | COMPLETE | Reinforce levee on UPR finished; levee reinforced''',
-"from BasinWatch — the actual line format written by OperationalJournal."))
+2026-10-18T18:25:45.551894012Z | SYSTEM | BasinWatch opened
+2026-10-18T18:26:29.394373823Z | SYSTEM | Sensor network connected
+2026-10-18T18:26:29.396289783Z | OBSERVATION | Mill Quarter · 1.37 m · Routine · rain 7.5 mm
+2026-10-18T18:26:32.401882145Z | OBSERVATION | Upper Weir · 2.04 m · Watch · rain 11.2 mm
+2026-10-18T18:28:37.333076452Z | DISPATCH REQUEST | BW-0001 dispatched · Deploy portable pump · Marsh End
+2026-10-18T18:37:10.011962040Z | OBSERVATION | Upper Weir · 8.00 m · Critical · rain 15.8 mm''',
+"from BasinWatch — the actual line format written by OperationalJournal. This is verbatim output from a real session, not a reconstruction. The three categories the project uses are SYSTEM, OBSERVATION and DISPATCH REQUEST.",
+lang="text"))
 
 B9.append("""
 <p>Four properties make this file useful, and each was a decision.</p>
@@ -1662,7 +1695,7 @@ reported, in a format that cannot drift.</p>
 """)
 
 B9.append(code('''data/archive/sensors.bin
-[ 4 bytes ] magic     0x42574154  ("BWAT")
+[ 4 bytes ] magic     0x42574152  ("BWAR")
 [ 4 bytes ] version   1
    --- one record per accepted observation ---
 [ 8 bytes ] tick                    long
@@ -1672,11 +1705,13 @@ B9.append(code('''data/archive/sensors.bin
 [ 8 bytes ] observedRiseCentimeters double''',
 "from BasinWatch — the sensor archive layout, as written by SensorArchive."))
 
-B9.append(visual("""<p>Count the bytes of a typical record and you get a feel for why the format is
-compact. A tick is 8 bytes. Two short identifiers, "MIL-ST-2" and "MIL", cost 2+7 and 2+3, so 14
-bytes. Two doubles cost 16. The whole record is 38 bytes, plus the 8-byte header for the first one.
-A text version of the same record would be roughly 45 characters and would need parsing and
-locale-independent number formatting to read back.</p>"""))
+B9.append(visual("""<p>Count the bytes of a real record and you get a feel for why the format is
+compact. A tick is 8 bytes. The two identifiers the simulated feed uses are
+<span class='mono'>G-UPR</span> and <span class='mono'>UPR</span>, costing 2+5 and 2+3 bytes, so 12.
+Two doubles cost 16. The whole record is 36 bytes, plus the 8-byte header once at the start of the
+file. A text version of the same record would be roughly 45 characters and would need parsing and
+locale-independent number formatting to read back — and it could not distinguish a
+<span class='mono'>double</span> from an <span class='mono'>int</span> without a convention.</p>"""))
 
 B9.append("""
 <h3><span class="n">9.5</span>The session snapshot</h3>
@@ -1716,25 +1751,35 @@ B9.append("""
 """)
 
 B9.append(code('''BASINWATCH · SITUATION REPORT
-Generated: 2026-03-04T09:16:02.331Z
-Simulation tick: 214
+Generated: 2026-10-18T18:30:50.581292677Z
+Simulation interval: 188
 
 ZONE CONDITIONS
-  MIL  Middle Basin     2.71 m  WARNING   42 residents   12.4 mm last interval
-  UPR  Upper Reach      3.62 m  CRITICAL  18 residents    9.8 mm last interval
-  ...
+UPR | Upper Weir | 5.44 m | 12.9 mm rain | Critical | 1800 exposed
+MIL | Mill Quarter | 5.83 m | 3.0 mm rain | Critical | 5200 exposed
+NOR | Northbank | 5.37 m | 9.2 mm rain | Critical | 2400 exposed
+OLD | Old Market | 5.52 m | 14.9 mm rain | Critical | 7100 exposed
+MAR | Marsh End | 4.45 m | 4.8 mm rain | Critical | 1100 exposed
+SOU | South Reach | 5.66 m | 8.5 mm rain | Critical | 3100 exposed
 
-RESOURCE BOARD
-  PUMP            available 2 of 4
-  FIELD_CREW      available 1 of 3
-  ...
+AVAILABLE RESPONSE RESOURCES
+Portable pumps: 3
+Levee crews: 3
+Supply trucks: 2
+Evacuation vehicles: 2
+Field crews: 4
 
-ACTIVE MISSIONS
-  M-0007  Deploy portable pump -> NOR   started tick 208, completes tick 216
+RESPONSE OPERATIONS
+BW-0001 | Deploy portable pump | MAR | Completed | 100%
 
 RECENT ACTIVITY
-  09:15:22  OBSERVATION  MIL rainfall 12.4 mm, rise 3.1 cm
-  ...''', "from BasinWatch — the report structure produced by ReportWriter."))
+18:30:17  SENSOR  Northbank · 4.82 m · Critical · rain 3.0 mm
+18:30:17  SENSOR  Old Market · 4.96 m · Critical · rain 14.6 mm
+18:30:17  SENSOR  Marsh End · 3.97 m · Critical · rain 10.3 mm
+18:30:17  SYSTEM  Simulation interval 166
+18:30:18  SENSOR  Mill Quarter · 5.38 m · Critical · rain 4.7 mm''',
+"from BasinWatch — the exact structure produced by ReportWriter.write. This is verbatim output, not a reconstruction.",
+lang="text"))
 
 B9.append("""
 <p>The report duplicates information that exists elsewhere, and that is correct. Its value is that it
@@ -1742,6 +1787,16 @@ is complete, self-contained and readable without the application. An operator ca
 incident note; a reviewer can read it a year later. A format optimised for machine reading would be
 worse at exactly that job.</p>
 """)
+
+B9.append(screenshot("shot_report_dialog", "S5", "Exporting a situation report from the running application",
+"Clicking <i>Export situation report</i> calls <span class='mono'>engine.exportReport()</span>, which "
+"returns a <span class='mono'>CompletableFuture&lt;Path&gt;</span>. The write happens off the "
+"event-dispatch thread and the confirmation above appears only once the future completes, showing the "
+"real path <span class='mono'>/tmp/bwdata2/data/reports/basin-status-20261018-183050-0513e2c7.txt</span>. "
+"The filename embeds the timestamp and a short random suffix, which is why two reports generated in "
+"the same second still get distinct names. Notice that the dialog is modal but the application was "
+"never frozen: the interface stayed responsive while the file was written, because the work was "
+"submitted rather than performed on the UI thread."))
 
 B9.append(figure("d09_io_class_responsibilities", "12", "Which class uses which stream, and why",
 "Every stream class in the project mapped to the class that uses it and the reason that stream was the right choice. The mapping is the argument of this chapter in one picture.",

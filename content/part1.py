@@ -116,6 +116,35 @@ figure("d01_architecture_overview", "1", "The complete BasinWatch system",
 "Six layers: the operator, the Swing interface on the event-dispatch thread, the engine's command API, the domain and engine layer, the sensor input path with its piped streams, and the two independent persistence columns for files and JDBC.",
 "portrait") + """
 
+<h4 class="plain">What that architecture actually looks like on screen</h4>
+
+<p>Every diagram in this book describes code that runs. Before going any further, look at
+what the operator actually sees. The window below is the real BasinWatch application,
+launched from the shaded JAR built by Maven, with a simulation in progress: observations
+streaming, zones escalating to <span class="mono">CRITICAL</span>, and a field response
+dispatched against Marsh End.</p>
+
+""" + screenshot("shot_response_tab", "S1", "The running BasinWatch application, Response tab",
+"Captured from the real application (<span class='mono'>java -jar target/basinwatch-1.0.0.jar</span>). "
+"The header carries the brand, the title bar of controls (<i>Pause observations</i>, "
+"<i>Advance one interval</i>, <i>Inject storm cell</i>, <i>Save session</i>, <i>Restore session</i>, "
+"<i>Export situation report</i>) and the risk summary reading "
+"<span class='mono'>6 ZONES · 5 CRITICAL · 1 WARNING · 0 WATCH</span>. The basin map below shows "
+"one card per zone with its live water level, rainfall and exposed population. The five tabs along "
+"the top of the panel — Response, Operations, Insights, Learn and Database history — are the "
+"subjects of Chapters 15 to 16, and each one is a real <span class='mono'>JPanel</span> added to a "
+"<span class='mono'>JTabbedPane</span>.") + """
+
+<p>Two details in that screenshot are worth noticing now, because the whole book returns to
+them. First, the risk summary is not painted by the engine: the engine publishes an immutable
+<span class="mono">BasinSnapshot</span>, and a Swing listener copies numbers out of it. Second,
+the button labelled <i>Pause observations</i> means the feed is currently running — the label
+is derived from the engine's state, so the interface and the model cannot disagree.</p>
+""" + visual("""<p>Read Diagram 1 from top to bottom. Follow the arrow from the operator
+into the Swing interface, down through the application commands into the engine, then along
+the green sensor path from left to right, and finally down into the two persistence columns.
+Every box is a real class; every arrow is a real call, stream write or thread hand-off.</p>""") + """
+
 <h4 class="plain">The six layers, in the order data meets them</h4>
 <ol>
 <li><b>The operator and the interface.</b> <span class="mono">BasinWatchApp.main</span> sets

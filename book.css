@@ -374,6 +374,11 @@ figure {
 figure img { max-width: 100%; }
 figure.portrait img { max-height: 214mm; }
 figure.landscape img { width: 100%; }
+figure.shot img {
+    border: 0.5pt solid #C6D3E0;
+    border-radius: 1.6mm;
+    box-shadow: 0 0.6mm 2mm rgba(22, 52, 79, 0.10);
+}
 figcaption {
     font-size: 7.8pt;
     color: #647589;
