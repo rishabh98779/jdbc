@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="780" viewBox="0 0 1180 780"><rect width="1180" height="780" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 8 — Wrapped and buffered streams</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Data written by the application travels down the wrapper chain to the device.</text>
+<rect x="70" y="84" width="470" height="70" rx="10" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="305.0" y="105.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">APPLICATION CODE</text>
+<text x="305.0" y="121.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">archive.append(reading)</text>
+<line x1="305" y1="154" x2="305" y2="176" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="305,176 300.54,167.61 309.46,167.61" fill="#2E82AC"/>
+<rect x="70" y="176" width="470" height="70" rx="10" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="305.0" y="197.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DataOutputStream</text>
+<text x="305.0" y="213.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">writeLong · writeUTF · writeDouble — adds TYPES</text>
+<line x1="305" y1="246" x2="305" y2="268" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="305,268 300.54,259.61 309.46,259.61" fill="#2E82AC"/>
+<rect x="70" y="268" width="470" height="70" rx="10" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="305.0" y="289.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BufferedOutputStream</text>
+<text x="305.0" y="305.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">collects bytes in an 8 KB array — adds BATCHING</text>
+<line x1="305" y1="338" x2="305" y2="360" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="305,360 300.54,351.61 309.46,351.61" fill="#2E82AC"/>
+<rect x="70" y="360" width="470" height="70" rx="10" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="305.0" y="381.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Files.newOutputStream(path)</text>
+<text x="305.0" y="397.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="middle" font-weight="normal">operating-system file handle — the real destination</text>
+<line x1="305" y1="430" x2="305" y2="452" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="305,452 300.54,443.61 309.46,443.61" fill="#2E82AC"/>
+<rect x="70" y="452" width="470" height="70" rx="10" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="305.0" y="473.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">data/archive/sensors.bin</text>
+<text x="305.0" y="489.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="middle" font-weight="normal">bytes on disk</text>
+<rect x="600" y="84" width="540" height="300" rx="8" fill="none" stroke="#3F9E7C" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="612" y="74.65" width="201.01999999999998" height="18.7" rx="4" fill="#DFF2EA" stroke="#DFF2EA" stroke-width="0"/>
+<text x="620" y="87.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="start" font-weight="bold">WHAT THE BUFFER ACTUALLY DOES</text>
+<text x="624" y="122" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Without buffering — one call per field</text>
+<rect x="624" y="134" width="36" height="26" rx="4" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.1"/>
+<text x="642" y="151" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9" fill="#C8545C" text-anchor="middle" font-weight="normal">sys</text>
+<rect x="668" y="134" width="36" height="26" rx="4" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.1"/>
+<text x="686" y="151" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9" fill="#C8545C" text-anchor="middle" font-weight="normal">sys</text>
+<rect x="712" y="134" width="36" height="26" rx="4" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.1"/>
+<text x="730" y="151" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9" fill="#C8545C" text-anchor="middle" font-weight="normal">sys</text>
+<rect x="756" y="134" width="36" height="26" rx="4" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.1"/>
+<text x="774" y="151" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9" fill="#C8545C" text-anchor="middle" font-weight="normal">sys</text>
+<rect x="800" y="134" width="36" height="26" rx="4" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.1"/>
+<text x="818" y="151" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9" fill="#C8545C" text-anchor="middle" font-weight="normal">sys</text>
+<rect x="844" y="134" width="36" height="26" rx="4" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.1"/>
+<text x="862" y="151" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9" fill="#C8545C" text-anchor="middle" font-weight="normal">sys</text>
+<text x="624" y="182" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#647589" text-anchor="start" font-weight="normal">writeLong → writeUTF → writeDouble → writeUTF … each reaches the OS</text>
+<text x="624" y="222" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">With buffering — one call per full buffer</text>
+<rect x="624" y="234" width="264" height="30" rx="5" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.3"/>
+<text x="756" y="254" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="10.5" fill="#3F9E7C" text-anchor="middle" font-weight="normal">8 KB byte[]  in memory</text>
+<line x1="900" y1="249" x2="942" y2="249" stroke="#3F9E7C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="942,249 933.61,253.46 933.61,244.54" fill="#3F9E7C"/>
+<rect x="946" y="234" width="60" height="30" rx="5" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.1"/>
+<text x="976" y="254" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.5" fill="#C8545C" text-anchor="middle" font-weight="normal">sys</text>
+<text x="624" y="292" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#647589" text-anchor="start" font-weight="normal">Many small logical writes collapse into few large physical writes.</text>
+<text x="624" y="312" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#647589" text-anchor="start" font-weight="normal">Flush pushes the tail out; close() flushes and releases the handle.</text>
+<text x="624" y="340" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#2E82AC" text-anchor="start" font-weight="bold">In BasinWatch, flush happens per accepted batch and on close().</text>
+<rect x="600" y="400" width="540" height="300" rx="8" fill="none" stroke="#2E82AC" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="612" y="390.65" width="213.77999999999997" height="18.7" rx="4" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<text x="620" y="403.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">READING REVERSES THE SAME CHAIN</text>
+<rect x="624" y="436" width="492" height="56" rx="8" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="870.0" y="456.44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.8" fill="#1A2A3D" text-anchor="middle" font-weight="bold">new FileInputStream(path)</text>
+<text x="870.0" y="471.94" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#D9962B" text-anchor="middle" font-weight="normal">raw bytes from disk</text>
+<line x1="870" y1="492" x2="870" y2="508" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="870,508 865.54,499.61 874.46,499.61" fill="#2E82AC"/>
+<rect x="624" y="508" width="492" height="56" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="870.0" y="528.44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.8" fill="#1A2A3D" text-anchor="middle" font-weight="bold">new BufferedInputStream(...)</text>
+<text x="870.0" y="543.94" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#3F9E7C" text-anchor="middle" font-weight="normal">one 8 KB read serves many small reads</text>
+<line x1="870" y1="564" x2="870" y2="580" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="870,580 865.54,571.61 874.46,571.61" fill="#2E82AC"/>
+<rect x="624" y="580" width="492" height="56" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="870.0" y="600.44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.8" fill="#1A2A3D" text-anchor="middle" font-weight="bold">new DataInputStream(...)</text>
+<text x="870.0" y="615.94" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#2E82AC" text-anchor="middle" font-weight="normal">readInt · readUTF · readDouble — typed values back</text>
+<line x1="870" y1="636" x2="870" y2="652" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="870,652 865.54,643.61 874.46,643.61" fill="#2E82AC"/>
+<rect x="624" y="652" width="492" height="58" rx="8" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="870.0" y="672.44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.8" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SensorArchive header check</text>
+<text x="870.0" y="687.6400000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">readInt() != MAGIC  →  IOException("marker or format version is invalid")</text>
+<text x="624" y="690" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="normal">Order matters: values must be read in exactly the order they were written.</text></svg>

@@ -1,0 +1,546 @@
+/* =====================================================================
+   Java Concepts — Integrated Visual Notes
+   Print stylesheet for WeasyPrint.  A4, dark-navy identity, teal accent.
+   ===================================================================== */
+
+@page {
+    size: A4;
+    margin: 20mm 16mm 18mm 16mm;
+    @top-left {
+        content: "Java Concepts · Integrated Visual Notes";
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 7.6pt;
+        color: #7C8DA0;
+        letter-spacing: 0.3pt;
+    }
+    @top-right {
+        content: string(runhead);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 7.6pt;
+        color: #2E82AC;
+    }
+    @bottom-center {
+        content: counter(page);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 8.6pt;
+        color: #16344F;
+        font-weight: bold;
+    }
+    @bottom-right {
+        content: string(part-title);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 7.2pt;
+        color: #A8B6C4;
+    }
+}
+
+@page cover {
+    margin: 0;
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-center { content: none; }
+    @bottom-right { content: none; }
+}
+
+@page part {
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+@page noheader {
+    @top-left { content: none; }
+    @top-right { content: none; }
+}
+
+/* ------------------------------------------------------------ base */
+html {
+    font-family: "DejaVu Sans", "Liberation Sans", sans-serif;
+    font-size: 9.6pt;
+    line-height: 1.5;
+    color: #33465C;
+    hyphens: none;
+}
+
+body { margin: 0; padding: 0; }
+
+p { margin: 0 0 7pt 0; text-align: justify; }
+
+strong { color: #1A2A3D; }
+em { color: #1A2A3D; font-style: italic; }
+
+code, .mono, kbd {
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 0.86em;
+    color: #16344F;
+}
+
+p code, li code, td code, .callout code {
+    background: #EEF3F8;
+    padding: 0.5pt 2.2pt;
+    border-radius: 2pt;
+    color: #16344F;
+}
+
+a { color: #2E82AC; text-decoration: none; }
+
+ul, ol { margin: 0 0 7pt 0; padding-left: 15pt; }
+li { margin-bottom: 3pt; text-align: justify; }
+ul.tight li, ol.tight li { margin-bottom: 1pt; }
+
+h1, h2, h3, h4 {
+    font-family: "DejaVu Sans", sans-serif;
+    color: #0E1B2C;
+    margin: 0;
+    page-break-after: avoid;
+}
+
+/* ------------------------------------------------------------ cover */
+.cover {
+    page: cover;
+    height: 297mm;
+    width: 210mm;
+    background: #0E1B2C;
+    color: #FFFFFF;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+}
+.cover-band {
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 6mm;
+    background: #2E82AC;
+}
+.cover-inner { padding: 34mm 20mm 0 20mm; }
+.cover-eyebrow {
+    font-size: 8.4pt;
+    letter-spacing: 3.2pt;
+    color: #7ACBE5;
+    font-weight: bold;
+    margin-bottom: 12mm;
+}
+.cover h1 {
+    font-size: 40pt;
+    line-height: 1.06;
+    color: #FFFFFF;
+    margin-bottom: 7mm;
+    letter-spacing: -0.6pt;
+}
+.cover h1 .accent { color: #7ACBE5; }
+.cover .subtitle {
+    font-size: 13pt;
+    color: #B6CCDD;
+    line-height: 1.42;
+    margin-bottom: 13mm;
+    max-width: 150mm;
+}
+.cover .rule {
+    height: 0.9mm; width: 46mm;
+    background: #2E82AC;
+    margin-bottom: 12mm;
+}
+.cover .blurb {
+    font-size: 9.6pt;
+    color: #9DB3C6;
+    line-height: 1.62;
+    max-width: 142mm;
+    margin-bottom: 10mm;
+}
+.cover .blurb b { color: #DCE8F2; }
+.cover-tags {
+    position: absolute;
+    left: 20mm; right: 20mm; bottom: 46mm;
+}
+.cover-tags span {
+    display: inline-block;
+    border: 0.5pt solid #2E82AC;
+    color: #9FD3E8;
+    font-size: 7.8pt;
+    padding: 2.6pt 6.4pt;
+    border-radius: 9pt;
+    margin: 0 3pt 5pt 0;
+    letter-spacing: 0.3pt;
+}
+.cover-foot {
+    position: absolute;
+    left: 20mm; right: 20mm; bottom: 18mm;
+    border-top: 0.5pt solid #24405C;
+    padding-top: 5mm;
+    font-size: 8.2pt;
+    color: #8AA1B6;
+}
+.cover-foot .r { float: right; color: #7ACBE5; font-weight: bold; }
+
+/* ------------------------------------------------------------ parts */
+.part-page {
+    page: part;
+    page-break-before: always;
+    height: 250mm;
+    background: #0E1B2C;
+    color: #FFFFFF;
+    padding: 30mm 18mm;
+    margin: -20mm -16mm 0 -16mm;
+    box-sizing: border-box;
+}
+.part-page .pnum {
+    font-size: 8.6pt; letter-spacing: 3pt; color: #7ACBE5;
+    font-weight: bold; margin-bottom: 8mm;
+}
+.part-page h1 {
+    font-size: 30pt; color: #FFFFFF; line-height: 1.12;
+    margin-bottom: 8mm; max-width: 150mm;
+}
+.part-page .prule { height: 0.8mm; width: 40mm; background: #2E82AC; margin-bottom: 9mm; }
+.part-page .pintro { font-size: 10.4pt; color: #B6CCDD; line-height: 1.6; max-width: 148mm; }
+.part-page .chapters {
+    margin-top: 14mm;
+    border-top: 0.5pt solid #24405C;
+    padding-top: 7mm;
+}
+.part-page .chapters div {
+    font-size: 10pt; color: #DCE8F2; margin-bottom: 3.4mm;
+}
+.part-page .chapters span { color: #7ACBE5; font-weight: bold; display: inline-block; width: 16mm; }
+
+/* ------------------------------------------------------------ chapters */
+.chapter { page-break-before: always; }
+h2.chapter-title {
+    font-size: 21pt;
+    line-height: 1.16;
+    color: #0E1B2C;
+    margin-bottom: 2mm;
+    padding-bottom: 3.4mm;
+    border-bottom: 2.2pt solid #2E82AC;
+    string-set: runhead content();
+}
+.part-page h1 {
+    string-set: part-title content();
+}
+.chapter-num {
+    font-size: 8.4pt;
+    letter-spacing: 2.6pt;
+    color: #2E82AC;
+    font-weight: bold;
+    margin-bottom: 2.6mm;
+}
+.chapter-deck {
+    font-size: 10.4pt;
+    color: #4C637A;
+    line-height: 1.52;
+    margin: 3.6mm 0 5mm 0;
+    padding-left: 4mm;
+    border-left: 2.6pt solid #DCE4ED;
+}
+h3 {
+    font-size: 13.2pt;
+    color: #16344F;
+    margin: 6.6mm 0 2.6mm 0;
+    padding-bottom: 1.4mm;
+    border-bottom: 0.5pt solid #DCE4ED;
+}
+h3 .n { color: #2E82AC; margin-right: 2mm; }
+h4 {
+    font-size: 10.8pt;
+    color: #2E82AC;
+    margin: 4.6mm 0 1.8mm 0;
+}
+h4.plain { color: #16344F; }
+
+.lead { font-size: 10.2pt; color: #33465C; }
+
+/* ------------------------------------------------------------ callouts */
+.callout {
+    margin: 3.6mm 0;
+    padding: 2.9mm 3.6mm 2.9mm 4.2mm;
+    border-radius: 2mm;
+    border-left: 1.1mm solid #2E82AC;
+    background: #F2F7FA;
+    page-break-inside: avoid;
+}
+.callout .tag {
+    display: block;
+    font-size: 7.2pt;
+    font-weight: bold;
+    letter-spacing: 1.1pt;
+    margin-bottom: 1.5mm;
+    color: #2E82AC;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout p { text-align: left; }
+
+.c-lecture { border-left-color: #6C5CA8; background: #F5F3FB; }
+.c-lecture .tag { color: #6C5CA8; }
+.c-concept { border-left-color: #2E82AC; background: #F1F7FB; }
+.c-concept .tag { color: #2E82AC; }
+.c-practice { border-left-color: #3F9E7C; background: #F0F8F4; }
+.c-practice .tag { color: #3F9E7C; }
+.c-related { border-left-color: #647589; background: #F4F6F9; }
+.c-related .tag { color: #647589; }
+.c-connect { border-left-color: #D9962B; background: #FDF8EE; }
+.c-connect .tag { color: #B87C18; }
+.c-distinct { border-left-color: #E07B3C; background: #FDF4EE; }
+.c-distinct .tag { color: #D2691E; }
+.c-mistake { border-left-color: #C8545C; background: #FCF1F2; }
+.c-mistake .tag { color: #C8545C; }
+.c-exam { border-left-color: #16344F; background: #F1F4F8; }
+.c-exam .tag { color: #16344F; }
+.c-clarify { border-left-color: #D9962B; background: #FDF9F0; }
+.c-clarify .tag { color: #B87C18; }
+.c-visual { border-left-color: #7ACBE5; background: #F2FAFD; }
+.c-visual .tag { color: #2E82AC; }
+.c-core { border-left-color: #0E1B2C; background: #F0F3F7; }
+.c-core .tag { color: #0E1B2C; }
+
+/* ------------------------------------------------------------ code */
+pre {
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 7.5pt;
+    line-height: 1.44;
+    background: #F6F9FC;
+    border: 0.4pt solid #DCE4ED;
+    border-left: 1mm solid #2E82AC;
+    border-radius: 1.6mm;
+    padding: 2.6mm 3.2mm;
+    margin: 2.8mm 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #1A2A3D;
+    page-break-inside: avoid;
+    overflow-wrap: break-word;
+}
+pre.long { page-break-inside: auto; }
+pre .cm { color: #6C8A9E; }
+pre .kw { color: #8A4B9E; font-weight: bold; }
+pre .st { color: #2E7D5B; }
+pre .ty { color: #2E82AC; }
+pre .an { color: #B87C18; }
+.codecap {
+    font-size: 7.6pt;
+    color: #647589;
+    margin: -1.4mm 0 3mm 0;
+    font-style: italic;
+}
+.codecap b { color: #16344F; font-style: normal; }
+
+/* ------------------------------------------------------------ tables */
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 8.3pt;
+    margin: 3mm 0 3.6mm 0;
+    page-break-inside: avoid;
+}
+table.big { page-break-inside: auto; }
+thead { display: table-header-group; }
+th {
+    background: #16344F;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 1.9mm 2.2mm;
+    font-size: 8.1pt;
+    border: 0.4pt solid #16344F;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+td {
+    padding: 1.7mm 2.2mm;
+    border: 0.4pt solid #DCE4ED;
+    vertical-align: top;
+    color: #33465C;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+tbody tr:nth-child(even) td { background: #F6F9FC; }
+td code { font-size: 7.6pt; background: none; padding: 0; }
+table caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 7.8pt;
+    color: #647589;
+    font-style: italic;
+    padding-bottom: 1.4mm;
+}
+table caption b { color: #16344F; font-style: normal; }
+
+/* ------------------------------------------------------------ figures */
+figure {
+    margin: 4mm 0;
+    page-break-inside: avoid;
+    text-align: center;
+}
+figure img { max-width: 100%; }
+figure.portrait img { max-height: 214mm; }
+figure.landscape img { width: 100%; }
+figcaption {
+    font-size: 7.8pt;
+    color: #647589;
+    text-align: left;
+    margin-top: 1.8mm;
+    padding-top: 1.4mm;
+    border-top: 0.4pt solid #DCE4ED;
+    line-height: 1.42;
+}
+figcaption b { color: #16344F; }
+
+/* ------------------------------------------------------------ components */
+.grid2 { display: flex; gap: 7mm; width: 100%; }
+.grid2 > div { flex: 1 1 0; min-width: 0; }
+.grid3 { display: flex; gap: 5mm; width: 100%; }
+.grid3 > div { flex: 1 1 0; min-width: 0; }
+
+.keyterms {
+    background: #F1F7FB;
+    border: 0.4pt solid #CDE1EE;
+    border-radius: 2mm;
+    padding: 2.8mm 3.4mm;
+    margin: 3.4mm 0;
+    font-size: 8.6pt;
+    page-break-inside: avoid;
+}
+.keyterms .tag {
+    font-size: 7.2pt; letter-spacing: 1.1pt; font-weight: bold;
+    color: #2E82AC; display: block; margin-bottom: 1.6mm;
+}
+.keyterms ul { margin: 0; padding-left: 13pt; }
+.keyterms li { margin-bottom: 1.1mm; text-align: left; }
+
+.summary {
+    background: #F4F7FA;
+    border-left: 1.1mm solid #16344F;
+    border-radius: 2mm;
+    padding: 3mm 3.6mm;
+    margin: 4mm 0 2mm 0;
+    page-break-inside: avoid;
+}
+.summary .tag {
+    font-size: 7.4pt; letter-spacing: 1.3pt; font-weight: bold;
+    color: #16344F; display: block; margin-bottom: 1.8mm;
+}
+.summary ul { margin: 0; padding-left: 13pt; }
+.summary li { margin-bottom: 1.3mm; font-size: 8.8pt; }
+
+.examqs { margin: 3mm 0; }
+.examqs .q {
+    font-size: 8.9pt;
+    color: #16344F;
+    font-weight: bold;
+    margin: 3mm 0 1.2mm 0;
+    page-break-after: avoid;
+}
+.examqs .a {
+    font-size: 8.7pt;
+    color: #33465C;
+    margin: 0 0 1.6mm 4mm;
+    padding-left: 3mm;
+    border-left: 0.5pt solid #DCE4ED;
+    text-align: left;
+}
+.qa { page-break-inside: avoid; margin-bottom: 3mm; }
+.qa .q { font-size: 8.9pt; color: #16344F; font-weight: bold; margin-bottom: 1.1mm; }
+.qa .a { font-size: 8.7pt; color: #33465C; margin-left: 3.4mm; text-align: left; }
+
+.exercise {
+    border: 0.4pt solid #DCE4ED;
+    border-radius: 2mm;
+    padding: 2.8mm 3.2mm;
+    margin: 3mm 0;
+    page-break-inside: avoid;
+}
+.exercise .h {
+    font-size: 8.6pt; font-weight: bold; color: #2E82AC;
+    margin-bottom: 1.4mm;
+}
+.exercise .h span { color: #647589; font-weight: normal; }
+.exercise p { font-size: 8.7pt; }
+
+.answer {
+    font-size: 8.5pt;
+    background: #F0F8F4;
+    border-left: 0.9mm solid #3F9E7C;
+    padding: 2.2mm 3mm;
+    margin-top: 2mm;
+    border-radius: 1.6mm;
+    text-align: left;
+}
+.answer b { color: #2E7D5B; }
+
+/* ------------------------------------------------------------ toc */
+.toc { page-break-after: always; }
+.toc h2 {
+    font-size: 19pt; color: #0E1B2C; margin-bottom: 1.6mm;
+    padding-bottom: 2.6mm; border-bottom: 2.2pt solid #2E82AC;
+}
+.toc .sub { font-size: 9.2pt; color: #647589; margin-bottom: 5mm; }
+.toc-part {
+    font-size: 8.2pt; font-weight: bold; letter-spacing: 1.5pt;
+    color: #2E82AC; margin: 5mm 0 2mm 0;
+    padding-bottom: 1.1mm; border-bottom: 0.5pt solid #DCE4ED;
+}
+.toc-line {
+    display: flex;
+    align-items: baseline;
+    font-size: 9.1pt;
+    color: #33465C;
+    margin-bottom: 1.5mm;
+}
+.toc-line .num { color: #2E82AC; font-weight: bold; flex: 0 0 9mm; }
+.toc-line .t { color: #1A2A3D; }
+.toc-line a { color: #1A2A3D; text-decoration: none; }
+.toc-line .pg, .toc-sub .pg {
+    flex: 0 0 auto; color: #647589; font-size: 8.6pt;
+}
+.toc-line .pg a, .toc-sub .pg a { text-decoration: none; }
+.toc-line .pg a::after, .toc-sub .pg a::after {
+    content: target-counter(attr(href), page);
+}
+.dots {
+    flex: 1 1 auto; margin: 0 2mm;
+    border-bottom: 0.4pt dotted #C8D2DE;
+    transform: translateY(-1.1mm);
+}
+.toc-sub {
+    display: flex; align-items: baseline;
+    font-size: 8.2pt; color: #7C8DA0; margin: 0 0 1.1mm 9mm;
+}
+.toc-sub .dots { border-bottom-color: #E1E8F0; }
+
+/* ------------------------------------------------------------ misc */
+.pagebreak { page-break-before: always; }
+.avoidbreak { page-break-inside: avoid; }
+.smallnote { font-size: 7.8pt; color: #7C8DA0; }
+hr.thin { border: none; border-top: 0.4pt solid #DCE4ED; margin: 4mm 0; }
+.defbox {
+    background: #F1F7FB;
+    border: 0.4pt solid #CDE1EE;
+    border-radius: 2mm;
+    padding: 2.6mm 3.2mm;
+    margin: 3mm 0;
+    page-break-inside: avoid;
+}
+.defbox .tag {
+    font-size: 7.2pt; letter-spacing: 1.1pt; font-weight: bold; color: #2E82AC;
+    display: block; margin-bottom: 1.4mm;
+}
+.defbox p { margin-bottom: 0; font-size: 8.9pt; }
+.defbox p + p { margin-top: 1.6mm; }
+.defbox .term { color: #0E1B2C; font-weight: bold; }
+
+.trace {
+    font-size: 8.1pt;
+    border: 0.4pt solid #DCE4ED;
+    border-radius: 2mm;
+    padding: 2.4mm 3mm;
+    margin: 3mm 0;
+    background: #FBFCFE;
+    page-break-inside: avoid;
+}
+.trace .h {
+    font-size: 8.2pt; font-weight: bold; color: #16344F;
+    margin-bottom: 1.6mm; letter-spacing: 0.4pt;
+}
+.trace ol { margin: 0; padding-left: 14pt; }
+.trace li { font-size: 8.2pt; margin-bottom: 1.1mm; }
+.trace .cls { color: #2E82AC; font-family: "DejaVu Sans Mono", monospace; font-size: 7.9pt; }

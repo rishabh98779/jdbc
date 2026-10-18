@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760"><rect width="1180" height="760" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 16 — PreparedStatement parameter binding</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">The SQL text and the data travel separately. That is both a correctness and a security property.</text>
+<rect x="40" y="78" width="530" height="300" rx="8" fill="none" stroke="#2E82AC" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="68.65" width="220.16" height="18.7" rx="4" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<text x="60" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">THE SQL TEMPLATE  (compile once)</text>
+<rect x="64" y="118" width="482" height="116" rx="8" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.4"/>
+<text x="80" y="146" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="normal">INSERT INTO sensor_readings</text>
+<text x="80" y="172" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="normal">    (timestamp, zone, water_level,</text>
+<text x="80" y="198" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="normal">     rainfall, risk_level)</text>
+<text x="80" y="224" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="13" fill="#2E82AC" text-anchor="start" font-weight="normal">VALUES (?, ?, ?, ?, ?)</text>
+<text x="64" y="258" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="normal">Five placeholders. The database parses this text once.</text>
+<text x="64" y="282" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="normal">Placeholders are data slots, never string concatenation.</text>
+<text x="64" y="320" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">Repository constant:  private static final String INSERT = """…""";</text>
+<text x="64" y="344" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#647589" text-anchor="start" font-weight="normal">A text block keeps the SQL readable without escaping.</text>
+<rect x="610" y="78" width="530" height="300" rx="8" fill="none" stroke="#6C5CA8" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="622" y="68.65" width="283.96" height="18.7" rx="4" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<text x="630" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">THE BINDING  (values supplied at run time)</text>
+<rect x="634" y="112" width="482" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="656" cy="132" r="12" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="656" y="137" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1</text>
+<text x="678" y="137" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="10.6" fill="#1A2A3D" text-anchor="start" font-weight="normal">setString(1, timestamp.toString())</text>
+<rect x="1058" y="120" width="48" height="24" rx="12.0" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<text x="1082.0" y="135.42" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">String</text>
+<rect x="634" y="158" width="482" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="656" cy="178" r="12" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="656" y="183" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">2</text>
+<text x="678" y="183" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="10.6" fill="#1A2A3D" text-anchor="start" font-weight="normal">setString(2, zone.id())</text>
+<rect x="1058" y="166" width="48" height="24" rx="12.0" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<text x="1082.0" y="181.42" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">String</text>
+<rect x="634" y="204" width="482" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="656" cy="224" r="12" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="656" y="229" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">3</text>
+<text x="678" y="229" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="10.6" fill="#1A2A3D" text-anchor="start" font-weight="normal">setDouble(3, zone.waterLevelMeters())</text>
+<rect x="1058" y="212" width="48" height="24" rx="12.0" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<text x="1082.0" y="227.42" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">double</text>
+<rect x="634" y="250" width="482" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="656" cy="270" r="12" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="656" y="275" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">4</text>
+<text x="678" y="275" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="10.6" fill="#1A2A3D" text-anchor="start" font-weight="normal">setDouble(4, reading.rainfallMillimeters())</text>
+<rect x="1058" y="258" width="48" height="24" rx="12.0" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<text x="1082.0" y="273.42" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">double</text>
+<rect x="634" y="296" width="482" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="656" cy="316" r="12" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="656" y="321" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">5</text>
+<text x="678" y="321" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="10.6" fill="#1A2A3D" text-anchor="start" font-weight="normal">setString(5, zone.risk().name())</text>
+<rect x="1058" y="304" width="48" height="24" rx="12.0" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<text x="1082.0" y="319.42" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">String</text>
+<text x="634" y="356" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#647589" text-anchor="start" font-weight="normal">Types are explicit, so a number can never be sent as text by accident.</text>
+<line x1="575" y1="228" x2="605" y2="228" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="605" y1="228" x2="575" y2="228" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="40" y="402" width="1100" height="106" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="590.0" y="423.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">WHY NOT BUILD THE SQL WITH + ?</text>
+<text x="590.0" y="439.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">String sql = "… WHERE zone = '" + userInput + "'";  ← the classic SQL-injection hole.</text>
+<text x="590.0" y="454.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">A PreparedStatement sends the template and the values on separate channels: the database already knows the shape</text>
+<text x="590.0" y="469.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">of the statement, so a value like  ' OR 1=1 --  is treated as a literal string, not as SQL grammar.</text>
+<rect x="40" y="524" width="1100" height="82" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="590.0" y="545.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BASINWATCH BATCHING: ResourceUsageRepository.insert</text>
+<text x="590.0" y="561.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">statement.setString(1, entry.getKey().name()); statement.setInt(2, entry.getValue()); …</text>
+<text x="590.0" y="576.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">statement.addBatch();   ← accumulate  ·   statement.executeBatch();   ← send all at once</text>
+<rect x="40" y="622" width="1100" height="46.6" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="622" width="4" height="46.6" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="636.65" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="640.65" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.3" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="640.04" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.3" fill="#1A2A3D" text-anchor="start" font-weight="normal">LIMIT is also bound, not concatenated:  statement.setInt(1, limit).  The value is still validated first</text>
+<text x="71" y="655.3399999999999" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.3" fill="#1A2A3D" text-anchor="start" font-weight="normal">(1…500) so that a programming error is caught before it reaches the database.</text></svg>

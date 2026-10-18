@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="836" viewBox="0 0 1180 836"><rect width="1180" height="836" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 22 — Swing event handling: from a click to a changed screen</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Following "Dispatch response" through listeners, futures and repaints.</text>
+<rect x="40" y="78" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="109" r="15" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="72" y="115" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1</text>
+<text x="104" y="104" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">User clicks the button</text>
+<text x="104" y="123" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">The operating system delivers a mouse event to the window.</text>
+<rect x="1000" y="96" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="112.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EDT</text>
+<line x1="72" y1="140" x2="72" y2="148" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,148 67.54,139.61 76.46,139.61" fill="#647589"/>
+<rect x="40" y="148" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="179" r="15" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="72" y="185" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">2</text>
+<text x="104" y="174" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">Swing dispatches the event</text>
+<text x="104" y="193" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">The EDT runs every ActionListener registered on that JButton.</text>
+<rect x="1000" y="166" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="182.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EDT</text>
+<line x1="72" y1="210" x2="72" y2="218" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,218 67.54,209.61 76.46,209.61" fill="#647589"/>
+<rect x="40" y="218" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="249" r="15" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="72" y="255" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">3</text>
+<text x="104" y="244" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">Listener asks the engine</text>
+<text x="104" y="263" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">engine.dispatch(selectedZoneId, missionType) — returns a boolean, not a future.</text>
+<rect x="1000" y="236" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="252.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EDT</text>
+<line x1="72" y1="280" x2="72" y2="288" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,288 67.54,279.61 76.46,279.61" fill="#647589"/>
+<rect x="40" y="288" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="319" r="15" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="72" y="325" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">4</text>
+<text x="104" y="314" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">Engine queues the event</text>
+<text x="104" y="333" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">eventBuffer.offerAll(List.of(new DispatchRequest(...))) — never blocks for long.</text>
+<rect x="1000" y="306" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="322.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EDT</text>
+<line x1="72" y1="350" x2="72" y2="358" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,358 67.54,349.61 76.46,349.61" fill="#647589"/>
+<rect x="40" y="358" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="389" r="15" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="72" y="395" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">5</text>
+<text x="104" y="384" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">A worker consumes it</text>
+<text x="104" y="403" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">ResponseWorker.take() returns the request; BasinModel.process() applies it.</text>
+<rect x="1000" y="376" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="392.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">worker</text>
+<line x1="72" y1="420" x2="72" y2="428" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,428 67.54,419.61 76.46,419.61" fill="#647589"/>
+<rect x="40" y="428" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="459" r="15" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="72" y="465" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">6</text>
+<text x="104" y="454" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">Model state changes</text>
+<text x="104" y="473" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">ResourceAllocator.tryReserve() decrements stock; a ResponseMission is created.</text>
+<rect x="1000" y="446" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="462.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">worker</text>
+<line x1="72" y1="490" x2="72" y2="498" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,498 67.54,489.61 76.46,489.61" fill="#647589"/>
+<rect x="40" y="498" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="529" r="15" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="72" y="535" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">7</text>
+<text x="104" y="524" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">Side effects run</text>
+<text x="104" y="543" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">journal.append(...) · databaseService.recordDispatch(...) · archiveWorker.submit(...)</text>
+<rect x="1000" y="516" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="532.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">worker</text>
+<line x1="72" y1="560" x2="72" y2="568" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,568 67.54,559.61 76.46,559.61" fill="#647589"/>
+<rect x="40" y="568" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="599" r="15" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="72" y="605" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">8</text>
+<text x="104" y="594" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">An immutable snapshot is published</text>
+<text x="104" y="613" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">publishSnapshot() calls each registered listener with a BasinSnapshot.</text>
+<rect x="1000" y="586" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="602.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">worker</text>
+<line x1="72" y1="630" x2="72" y2="638" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,638 67.54,629.61 76.46,629.61" fill="#647589"/>
+<rect x="40" y="638" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="669" r="15" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="72" y="675" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">9</text>
+<text x="104" y="664" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">The listener posts to the EDT</text>
+<text x="104" y="683" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">SwingUtilities.invokeLater(() -&gt; updateSnapshot(snapshot))</text>
+<rect x="1000" y="656" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="672.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">→ EDT</text>
+<line x1="72" y1="700" x2="72" y2="708" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="72,708 67.54,699.61 76.46,699.61" fill="#647589"/>
+<rect x="40" y="708" width="1100" height="62" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="72" cy="739" r="15" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="72" y="745" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">10</text>
+<text x="104" y="734" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">The UI repaints</text>
+<text x="104" y="753" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#33465C" text-anchor="start" font-weight="normal">Labels, JList models and BasinMapPanel.update() + repaint() run on the EDT.</text>
+<rect x="1000" y="726" width="120" height="26" rx="13.0" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<text x="1060.0" y="742.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EDT</text>
+<rect x="40" y="784" width="1100" height="31" rx="6" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<rect x="40" y="784" width="4" height="31" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<circle cx="57" cy="798.5" r="7.5" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="57" y="802.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="801.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="normal">Notice steps 1–4 and 9–10 happen on the EDT; steps 5–8 happen on a worker thread.</text></svg>

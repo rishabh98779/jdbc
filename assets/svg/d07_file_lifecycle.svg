@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="800" viewBox="0 0 1180 800"><rect width="1180" height="800" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 7 — File persistence lifecycles in BasinWatch</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Four different files, four different reasons. None is a substitute for another.</text>
+<rect x="40" y="82" width="1100" height="158" rx="10" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.3"/>
+<rect x="40" y="82" width="6" height="158" rx="3" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="64" y="112" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="14" fill="#1A2A3D" text-anchor="start" font-weight="bold">operations.log</text>
+<text x="64" y="132" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="normal">OperationalJournal</text>
+<text x="64" y="220" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="start" font-weight="bold">Human-readable audit trail</text>
+<rect x="300" y="102" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="310" y="122" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 1</text>
+<text x="310" y="142" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">open:</text>
+<text x="310" y="155" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">Files.newBufferedWriter(CREATE,</text>
+<text x="310" y="168" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">APPEND, UTF-8)</text>
+<line x1="500" y1="161" x2="522" y2="161" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="522,161 513.61,165.46 513.61,156.54" fill="#647589"/>
+<rect x="522" y="102" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="532" y="122" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 2</text>
+<text x="532" y="142" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">append: timestamp |</text>
+<text x="532" y="155" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">category | message +</text>
+<text x="532" y="168" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">newLine()</text>
+<line x1="722" y1="161" x2="744" y2="161" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="744,161 735.61,165.46 735.61,156.54" fill="#647589"/>
+<rect x="744" y="102" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="754" y="122" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 3</text>
+<text x="754" y="142" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">flush: every 12 lines, or</text>
+<text x="754" y="155" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">on WARNING / COMPLETE /</text>
+<text x="754" y="168" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">ALLOCATED</text>
+<line x1="944" y1="161" x2="966" y2="161" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="966,161 957.61,165.46 957.61,156.54" fill="#647589"/>
+<rect x="966" y="102" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="976" y="122" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 4</text>
+<text x="976" y="142" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">close: flush() then</text>
+<text x="976" y="155" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">close() — journal.close()</text>
+<text x="976" y="168" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">on shutdown</text>
+<rect x="40" y="252" width="1100" height="158" rx="10" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.3"/>
+<rect x="40" y="252" width="6" height="158" rx="3" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<text x="64" y="282" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="14" fill="#1A2A3D" text-anchor="start" font-weight="bold">sensors.bin</text>
+<text x="64" y="302" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="normal">SensorArchive + ArchiveWorker</text>
+<text x="64" y="390" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">Typed measurements for replay</text>
+<rect x="300" y="272" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="310" y="292" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 1</text>
+<text x="310" y="312" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">open: check MAGIC</text>
+<text x="310" y="325" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">0x42574152 and version,</text>
+<text x="310" y="338" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">else write header</text>
+<line x1="500" y1="331" x2="522" y2="331" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="522,331 513.61,335.46 513.61,326.54" fill="#647589"/>
+<rect x="522" y="272" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="532" y="292" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 2</text>
+<text x="532" y="312" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">append: writeLong tick,</text>
+<text x="532" y="325" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">writeUTF station, writeUTF</text>
+<text x="532" y="338" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">zone, 2 × writeDouble</text>
+<line x1="722" y1="331" x2="744" y2="331" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="744,331 735.61,335.46 735.61,326.54" fill="#647589"/>
+<rect x="744" y="272" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="754" y="292" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 3</text>
+<text x="754" y="312" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">worker:</text>
+<text x="754" y="325" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">ArrayBlockingQueue(512)</text>
+<text x="754" y="338" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">drained on its own thread</text>
+<line x1="944" y1="331" x2="966" y2="331" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="966,331 957.61,335.46 957.61,326.54" fill="#647589"/>
+<rect x="966" y="272" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="976" y="292" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 4</text>
+<text x="976" y="312" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">close: finish() sentinel →</text>
+<text x="976" y="325" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">archive.close()</text>
+<rect x="40" y="422" width="1100" height="158" rx="10" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.3"/>
+<rect x="40" y="422" width="6" height="158" rx="3" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="64" y="452" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="14" fill="#1A2A3D" text-anchor="start" font-weight="bold">*.bws</text>
+<text x="64" y="472" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="normal">SnapshotStore + SessionSnapshot</text>
+<text x="64" y="560" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">Recoverable session state</text>
+<rect x="300" y="442" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="310" y="462" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 1</text>
+<text x="310" y="482" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">save: encode() → byte[] in</text>
+<text x="310" y="495" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">memory</text>
+<text x="310" y="508" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">(ByteArrayOutputStream)</text>
+<line x1="500" y1="501" x2="522" y2="501" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="522,501 513.61,505.46 513.61,496.54" fill="#647589"/>
+<rect x="522" y="442" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="532" y="462" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 2</text>
+<text x="532" y="482" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">write:</text>
+<text x="532" y="495" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">BufferedOutputStream to a</text>
+<text x="532" y="508" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">temporary sibling file</text>
+<line x1="722" y1="501" x2="744" y2="501" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="744,501 735.61,505.46 735.61,496.54" fill="#647589"/>
+<rect x="744" y="442" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="754" y="462" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 3</text>
+<text x="754" y="482" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">replace:</text>
+<text x="754" y="495" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">Files.move(ATOMIC_MOVE,</text>
+<text x="754" y="508" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">REPLACE_EXISTING) —</text>
+<text x="754" y="521" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">fallback plain move</text>
+<line x1="944" y1="501" x2="966" y2="501" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="966,501 957.61,505.46 957.61,496.54" fill="#647589"/>
+<rect x="966" y="442" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="976" y="462" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 4</text>
+<text x="976" y="482" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">failure: temporary file is</text>
+<text x="976" y="495" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">deleted in a finally block</text>
+<rect x="40" y="592" width="1100" height="158" rx="10" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.3"/>
+<rect x="40" y="592" width="6" height="158" rx="3" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="64" y="622" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="14" fill="#1A2A3D" text-anchor="start" font-weight="bold">*.txt report</text>
+<text x="64" y="642" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="normal">ReportWriter</text>
+<text x="64" y="730" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="start" font-weight="bold">Operator-readable summary</text>
+<rect x="300" y="612" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="310" y="632" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 1</text>
+<text x="310" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">name:</text>
+<text x="310" y="665" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">basin-status-&lt;yyyyMMdd-HHmmss&gt;-&lt;uuid8&gt;.txt</text>
+<line x1="500" y1="671" x2="522" y2="671" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="522,671 513.61,675.46 513.61,666.54" fill="#647589"/>
+<rect x="522" y="612" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="532" y="632" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 2</text>
+<text x="532" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">write: try-with-resources</text>
+<text x="532" y="665" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">BufferedWriter, UTF-8</text>
+<line x1="722" y1="671" x2="744" y2="671" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="744,671 735.61,675.46 735.61,666.54" fill="#647589"/>
+<rect x="744" y="612" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="754" y="632" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 3</text>
+<text x="754" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">content: zones, resources,</text>
+<text x="754" y="665" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">missions, recent activity</text>
+<line x1="944" y1="671" x2="966" y2="671" stroke="#647589" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="966,671 957.61,675.46 957.61,666.54" fill="#647589"/>
+<rect x="966" y="612" width="200" height="118" rx="7" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="976" y="632" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9" fill="#647589" text-anchor="start" font-weight="bold" letter-spacing="0.8">STEP 4</text>
+<text x="976" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">close: automatic at the</text>
+<text x="976" y="665" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#33465C" text-anchor="start" font-weight="normal">end of the try block</text>
+<rect x="40" y="762" width="1100" height="46" rx="6" fill="#EDF2F7" stroke="#647589" stroke-width="1.3"/>
+<rect x="40" y="762" width="4" height="46" rx="2" fill="#647589" stroke="#647589" stroke-width="0"/>
+<circle cx="57" cy="776.5" r="7.5" fill="#647589" stroke="#647589" stroke-width="1.4"/>
+<text x="57" y="780.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="779.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="normal">Compare with Diagram 20 (persistence matrix): a log is append-only text, an archive is typed binary,</text>
+<text x="71" y="794.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="normal">a snapshot is a whole-object replacement, and a report is a throw-away artefact for a person.</text></svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="800" viewBox="0 0 1180 800"><rect width="1180" height="800" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 25 — Maven: from pom.xml to a runnable jar</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Dependencies, plugins and build phases for the actual BasinWatch pom.xml.</text>
+<rect x="40" y="78" width="340" height="460" rx="8" fill="none" stroke="#6C5CA8" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="68.65" width="213.77999999999997" height="18.7" rx="4" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<text x="60" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">pom.xml  (project object model)</text>
+<rect x="64" y="112" width="292" height="42" rx="6" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="76" y="129" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">groupId / artifactId / version</text>
+<text x="76" y="145" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="start" font-weight="normal">com.basinwatch / basinwatch / 1.0.0</text>
+<rect x="64" y="160" width="292" height="42" rx="6" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="76" y="177" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">properties</text>
+<text x="76" y="193" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="start" font-weight="normal">maven.compiler.release = 17</text>
+<text x="64" y="224" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="start" font-weight="normal">sqlite-jdbc.version = 3.50.3.0</text>
+<rect x="64" y="234" width="292" height="42" rx="6" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="76" y="251" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">dependencies</text>
+<text x="76" y="267" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="start" font-weight="normal">org.xerial:sqlite-jdbc:${…}</text>
+<rect x="64" y="282" width="292" height="42" rx="6" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="76" y="299" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">build → maven-compiler-plugin</text>
+<text x="76" y="315" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="start" font-weight="normal">release 17</text>
+<rect x="64" y="330" width="292" height="42" rx="6" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="76" y="347" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">build → maven-jar-plugin</text>
+<text x="76" y="363" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="start" font-weight="normal">manifest mainClass = BasinWatchApp</text>
+<rect x="64" y="378" width="292" height="42" rx="6" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="76" y="395" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">build → maven-shade-plugin</text>
+<text x="76" y="411" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="start" font-weight="normal">phase: package, goal: shade</text>
+<rect x="64" y="426" width="292" height="42" rx="6" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<text x="76" y="443" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#1A2A3D" text-anchor="start" font-weight="bold">shade transformers</text>
+<text x="76" y="459" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="start" font-weight="normal">ServicesResourceTransformer</text>
+<text x="64" y="490" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="start" font-weight="normal">ManifestResourceTransformer</text>
+<rect x="410" y="78" width="400" height="460" rx="8" fill="none" stroke="#3F9E7C" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="422" y="68.65" width="175.5" height="18.7" rx="4" fill="#DFF2EA" stroke="#DFF2EA" stroke-width="0"/>
+<text x="430" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="start" font-weight="bold">LIFECYCLE  ·  mvn package</text>
+<rect x="434" y="116" width="352" height="52" rx="7" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="610.0" y="133.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">validate</text>
+<text x="610.0" y="148.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">check the pom is well formed</text>
+<line x1="610" y1="168" x2="610" y2="178" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="610,178 605.54,169.61 614.46,169.61" fill="#3F9E7C"/>
+<rect x="434" y="178" width="352" height="52" rx="7" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="610.0" y="195.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">compile</text>
+<text x="610.0" y="210.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">javac all of src/main/java at release 17</text>
+<line x1="610" y1="230" x2="610" y2="240" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="610,240 605.54,231.61 614.46,231.61" fill="#3F9E7C"/>
+<rect x="434" y="240" width="352" height="52" rx="7" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="610.0" y="257.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">test</text>
+<text x="610.0" y="272.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">run src/test/java — BasinWatch uses a plain main()</text>
+<line x1="610" y1="292" x2="610" y2="302" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="610,302 605.54,293.61 614.46,293.61" fill="#3F9E7C"/>
+<rect x="434" y="302" width="352" height="52" rx="7" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="610.0" y="319.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">package</text>
+<text x="610.0" y="334.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">jar-plugin builds the thin jar</text>
+<line x1="610" y1="354" x2="610" y2="364" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="610,364 605.54,355.61 614.46,355.61" fill="#3F9E7C"/>
+<text x="434" y="378" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="start" font-weight="normal">shade-plugin runs in this phase</text>
+<rect x="434" y="394" width="352" height="52" rx="7" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="610.0" y="411.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">verify / install</text>
+<text x="610.0" y="426.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">the shaded jar replaces the thin jar</text>
+<line x1="610" y1="446" x2="610" y2="456" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="610,456 605.54,447.61 614.46,447.61" fill="#3F9E7C"/>
+<rect x="840" y="78" width="300" height="460" rx="8" fill="none" stroke="#D9962B" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="852" y="68.65" width="54.279999999999994" height="18.7" rx="4" fill="#FBEFD6" stroke="#FBEFD6" stroke-width="0"/>
+<text x="860" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="start" font-weight="bold">OUTPUT</text>
+<rect x="864" y="116" width="252" height="96" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="990.0" y="135.48" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">target/basinwatch-1.0.0.jar</text>
+<text x="990.0" y="150.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#D9962B" text-anchor="middle" font-weight="normal">an uber-jar containing</text>
+<text x="990.0" y="164.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#D9962B" text-anchor="middle" font-weight="normal">your classes + SQLite JDBC +</text>
+<text x="990.0" y="177.88" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#D9962B" text-anchor="middle" font-weight="normal">a Main-Class manifest entry</text>
+<rect x="864" y="228" width="252" height="92" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="990.0" y="247.48" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">run it</text>
+<text x="990.0" y="262.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">java -jar target/basinwatch-1.0.0.jar</text>
+<text x="990.0" y="276.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">no classpath juggling,</text>
+<text x="990.0" y="289.88" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">no manual driver setup</text>
+<rect x="864" y="336" width="252" height="100" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="990.0" y="355.48" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">why shade matters here</text>
+<text x="990.0" y="370.08000000000004" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">JDBC discovers drivers through</text>
+<text x="990.0" y="383.68000000000006" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">META-INF/services. Without the</text>
+<text x="990.0" y="397.28000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">ServicesResourceTransformer the</text>
+<text x="990.0" y="410.88000000000005" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">driver would not be found.</text>
+<rect x="864" y="452" width="252" height="70" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="990.0" y="471.48" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">local repository</text>
+<text x="990.0" y="486.08000000000004" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="middle" font-weight="normal">~/.m2/repository caches</text>
+<text x="990.0" y="499.68000000000006" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#647589" text-anchor="middle" font-weight="normal">sqlite-jdbc after the first build</text>
+<rect x="40" y="556" width="1100" height="96" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="577.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#0E1B2C" text-anchor="middle" font-weight="bold">HOW DEPENDENCIES REACH THE RUNNING APPLICATION</text>
+<text x="590.0" y="593.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">pom.xml declares the dependency → Maven downloads the jar into ~/.m2 → the compiler puts it on the classpath →</text>
+<text x="590.0" y="608.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">the shade plugin merges it into the output jar → at run time DriverManager can find the driver class →</text>
+<text x="590.0" y="623.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">without the driver, jdbc:sqlite:… cannot be opened, and DatabaseService would report the database as unavailable.</text>
+<rect x="40" y="668" width="1100" height="46.4" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="668" width="4" height="46.4" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="682.6" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="686.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="685.96" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">The pom.xml also shows a second, optional path: the thin jar from maven-jar-plugin is useful when running from an</text>
+<text x="71" y="701.1600000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">IDE or with an explicit classpath. The shaded jar is what DEPLOYMENT.md ships to a machine without Maven.</text></svg>

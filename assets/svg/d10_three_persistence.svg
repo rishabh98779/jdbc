@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="700" viewBox="0 0 1180 700"><rect width="1180" height="700" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 11 — In-memory state, persistent files and a database</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Three different answers to "where does the data live?" — and why a real application wants all three.</text>
+<rect x="40" y="76" width="340" height="40" rx="7" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="210.0" y="100.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">IN-MEMORY STATE</text>
+<rect x="40" y="128" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="62" cy="150" r="5.5" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="78" y="148" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Lives inside the running JVM</text>
+<rect x="40" y="180" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="62" cy="202" r="5.5" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="78" y="200" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Fastest: a field read is nanoseconds</text>
+<rect x="40" y="232" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="62" cy="254" r="5.5" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="78" y="252" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Structured as objects: BasinModel,</text>
+<text x="78" y="266" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">BasinZone</text>
+<rect x="40" y="284" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="62" cy="306" r="5.5" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="78" y="304" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Supports rich behaviour and invariants</text>
+<rect x="40" y="336" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="62" cy="358" r="5.5" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="78" y="356" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Lost the moment the process exits</text>
+<rect x="40" y="388" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="62" cy="410" r="5.5" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="78" y="408" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">BasinWatch: the live basin picture</text>
+<rect x="40" y="446" width="340" height="96" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="210.0" y="463.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">COST OF LOSING IT</text>
+<text x="210.0" y="479.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">Everything — the basin restarts from defaults</text>
+<rect x="420" y="76" width="340" height="40" rx="7" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.4"/>
+<text x="590.0" y="100.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">PERSISTENT FILES</text>
+<rect x="420" y="128" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="442" cy="150" r="5.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="458" y="148" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Lives on the file system</text>
+<rect x="420" y="180" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="442" cy="202" r="5.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="458" y="200" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Whole-file or append access</text>
+<rect x="420" y="232" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="442" cy="254" r="5.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="458" y="252" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Format chosen by the programmer</text>
+<rect x="420" y="284" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="442" cy="306" r="5.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="458" y="304" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">No query language, no indexes</text>
+<rect x="420" y="336" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="442" cy="358" r="5.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="458" y="356" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Survives restart; portable and</text>
+<text x="458" y="370" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">inspectable</text>
+<rect x="420" y="388" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="442" cy="410" r="5.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="458" y="408" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">BasinWatch: log, archive, snapshot,</text>
+<text x="458" y="422" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">report</text>
+<rect x="420" y="446" width="340" height="96" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="590.0" y="463.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">COST OF LOSING IT</text>
+<text x="590.0" y="479.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">Nothing, but replaying history by hand is slow</text>
+<rect x="800" y="76" width="340" height="40" rx="7" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.4"/>
+<text x="970.0" y="100.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">RELATIONAL DATABASE</text>
+<rect x="800" y="128" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="822" cy="150" r="5.5" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="838" y="148" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Lives in tables with rows and columns</text>
+<rect x="800" y="180" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="822" cy="202" r="5.5" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="838" y="200" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Queried with SQL (SELECT / INSERT / …)</text>
+<rect x="800" y="232" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="822" cy="254" r="5.5" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="838" y="252" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Indexes make selective search fast</text>
+<rect x="800" y="284" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="822" cy="306" r="5.5" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="838" y="304" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Concurrent access and transactions</text>
+<rect x="800" y="336" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="822" cy="358" r="5.5" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="838" y="356" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Needs a driver; may need a server</text>
+<rect x="800" y="388" width="340" height="44" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<circle cx="822" cy="410" r="5.5" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="838" y="408" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">BasinWatch: optional SQLite history</text>
+<rect x="800" y="446" width="340" height="96" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="970.0" y="463.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">COST OF LOSING IT</text>
+<text x="970.0" y="479.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">Nothing essential — files already hold the record</text>
+<rect x="40" y="550" width="1100" height="62.5" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="550" width="4" height="62.5" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="564.75" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="568.75" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="568.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">WHY MORE THAN ONE?  They are not competing for the same job. Files keep an audit trail and a recoverable</text>
+<text x="71" y="583.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">session. The database answers a different question — "show me the last 200 readings of this zone, newest first" —</text>
+<text x="71" y="599.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">without scanning a whole file by hand. BasinWatch makes the database optional so the application still runs without it.</text></svg>

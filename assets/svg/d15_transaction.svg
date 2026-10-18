@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="820" viewBox="0 0 1180 820"><rect width="1180" height="820" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 17 — Transactions: several changes that must succeed or fail together</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">MissionRepository.recordDispatch() commits three writes as one unit.</text>
+<rect x="40" y="78" width="530" height="380" rx="8" fill="none" stroke="#3F9E7C" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="68.65" width="226.54" height="18.7" rx="4" fill="#DFF2EA" stroke="#DFF2EA" stroke-width="0"/>
+<text x="60" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="start" font-weight="bold">PATH A — ALL THREE WRITES SUCCEED</text>
+<rect x="64" y="112" width="482" height="46" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="305.0" y="129.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">openConnection()</text>
+<text x="305.0" y="144.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#2E82AC" text-anchor="middle" font-weight="normal">a fresh SQLite connection</text>
+<line x1="305" y1="158" x2="305" y2="166" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="305,166 300.54,157.61 309.46,157.61" fill="#3F9E7C"/>
+<rect x="64" y="166" width="482" height="46" rx="8" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="305.0" y="183.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">setAutoCommit(false)</text>
+<text x="305.0" y="198.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">start an explicit transaction</text>
+<line x1="305" y1="212" x2="305" y2="220" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="305,220 300.54,211.61 309.46,211.61" fill="#3F9E7C"/>
+<rect x="64" y="220" width="482" height="46" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="305.0" y="237.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">INSERT INTO missions</text>
+<text x="305.0" y="252.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">the mission row (id, type, zone, status…)</text>
+<line x1="305" y1="266" x2="305" y2="274" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="305,274 300.54,265.61 309.46,265.61" fill="#3F9E7C"/>
+<rect x="64" y="274" width="482" height="46" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="305.0" y="291.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">INSERT INTO resource_usage</text>
+<text x="305.0" y="306.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">one row per allocated resource type</text>
+<line x1="305" y1="320" x2="305" y2="328" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="305,328 300.54,319.61 309.46,319.61" fill="#3F9E7C"/>
+<rect x="64" y="328" width="482" height="46" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="305.0" y="345.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">INSERT INTO operational_events</text>
+<text x="305.0" y="360.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">the MISSION DISPATCH audit row</text>
+<line x1="305" y1="374" x2="305" y2="382" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="305,382 300.54,373.61 309.46,373.61" fill="#3F9E7C"/>
+<rect x="64" y="382" width="482" height="46" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="305.0" y="399.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">commit()</text>
+<text x="305.0" y="414.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">all three become permanent together</text>
+<line x1="305" y1="428" x2="305" y2="436" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="305,436 300.54,427.61 309.46,427.61" fill="#3F9E7C"/>
+<rect x="610" y="78" width="530" height="380" rx="8" fill="none" stroke="#C8545C" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="622" y="68.65" width="156.35999999999999" height="18.7" rx="4" fill="#F8E0E2" stroke="#F8E0E2" stroke-width="0"/>
+<text x="630" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#C8545C" text-anchor="start" font-weight="bold">PATH B — A WRITE FAILS</text>
+<rect x="634" y="112" width="482" height="46" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="875.0" y="129.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">openConnection()</text>
+<text x="875.0" y="144.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#2E82AC" text-anchor="middle" font-weight="normal">a fresh SQLite connection</text>
+<line x1="875" y1="158" x2="875" y2="166" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="875,166 870.54,157.61 879.46,157.61" fill="#3F9E7C"/>
+<rect x="634" y="166" width="482" height="46" rx="8" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="875.0" y="183.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">setAutoCommit(false)</text>
+<text x="875.0" y="198.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">start an explicit transaction</text>
+<line x1="875" y1="212" x2="875" y2="220" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="875,220 870.54,211.61 879.46,211.61" fill="#3F9E7C"/>
+<rect x="634" y="220" width="482" height="46" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="875.0" y="237.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">INSERT INTO missions</text>
+<text x="875.0" y="252.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">succeeds inside the transaction</text>
+<line x1="875" y1="266" x2="875" y2="274" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="875,274 870.54,265.61 879.46,265.61" fill="#3F9E7C"/>
+<rect x="634" y="274" width="482" height="46" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="875.0" y="291.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">INSERT INTO resource_usage</text>
+<text x="875.0" y="306.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#C8545C" text-anchor="middle" font-weight="normal">throws SQLException</text>
+<line x1="875" y1="320" x2="875" y2="328" stroke="#C8545C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="875,328 870.54,319.61 879.46,319.61" fill="#C8545C"/>
+<rect x="634" y="328" width="482" height="46" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="875.0" y="345.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">catch → rollback()</text>
+<text x="875.0" y="360.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#C8545C" text-anchor="middle" font-weight="normal">the mission row is undone too</text>
+<line x1="875" y1="374" x2="875" y2="382" stroke="#C8545C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="875,382 870.54,373.61 879.46,373.61" fill="#C8545C"/>
+<rect x="634" y="382" width="482" height="46" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="875.0" y="399.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">throw ex</text>
+<text x="875.0" y="414.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#C8545C" text-anchor="middle" font-weight="normal">the failure reaches DatabaseService</text>
+<line x1="875" y1="428" x2="875" y2="436" stroke="#C8545C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="875,436 870.54,427.61 879.46,427.61" fill="#C8545C"/>
+<rect x="40" y="476" width="1100" height="96" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="497.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#0E1B2C" text-anchor="middle" font-weight="bold">WHY THIS MATTERS HERE</text>
+<text x="590.0" y="513.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">Without a transaction the database could contain a mission row whose resource rows were never written, or</text>
+<text x="590.0" y="528.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">resource rows pointing at a mission that does not exist. Either state would make the history lie about what</text>
+<text x="590.0" y="543.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">actually happened. The foreign key resource_usage.mission_id REFERENCES missions(id) also protects this.</text>
+<rect x="40" y="588" width="1100" height="96" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="590.0" y="609.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">THE GUARD CLAUSE IN updateStatus()</text>
+<text x="590.0" y="625.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">UPDATE missions SET status = ?, completed_at = ? WHERE id = ? AND status = 'ACTIVE'</text>
+<text x="590.0" y="640.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">if (changed != 1) throw new SQLException("The active mission record was not found: " + mission.id());</text>
+<text x="590.0" y="655.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">Updating only an ACTIVE row makes the operation idempotent-safe: a second completion cannot silently succeed.</text>
+<rect x="40" y="700" width="1100" height="46.6" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="700" width="4" height="46.6" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="714.65" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="718.65" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.3" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="718.04" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.3" fill="#1A2A3D" text-anchor="start" font-weight="normal">The rollback helper never hides the original failure: rollback errors are added as suppressed exceptions</text>
+<text x="71" y="733.3399999999999" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.3" fill="#1A2A3D" text-anchor="start" font-weight="normal">(original.addSuppressed(rollbackError)), so a rollback problem cannot mask the real cause.</text></svg>

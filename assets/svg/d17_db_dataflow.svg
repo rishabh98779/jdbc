@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="780" viewBox="0 0 1180 780"><rect width="1180" height="780" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 18 — How a reading reaches SQLite and comes back to the screen</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Two directions, one repository, and never on the Swing event thread.</text>
+<rect x="40" y="78" width="1100" height="36" rx="7" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="590.0" y="100.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">DIRECTION 1 — WRITE  ·  accepted event → database row</text>
+<rect x="40" y="128" width="168" height="74" rx="8" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="124.0" y="144.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ResponseWorker</text>
+<text x="124.0" y="159.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#6C5CA8" text-anchor="middle" font-weight="normal">process(event)</text>
+<line x1="208" y1="165" x2="220" y2="165" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="220,165 211.61,169.46 211.61,160.54" fill="#647589"/>
+<rect x="220" y="128" width="168" height="74" rx="8" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="304.0" y="144.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BasinEngine.persistDatabase</text>
+<text x="304.0" y="159.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#6C5CA8" text-anchor="middle" font-weight="normal">compares before / after snapshots</text>
+<line x1="388" y1="165" x2="400" y2="165" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="400,165 391.61,169.46 391.61,160.54" fill="#647589"/>
+<rect x="400" y="128" width="168" height="74" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="484.0" y="144.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DatabaseService.recordSensor</text>
+<text x="484.0" y="159.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">enqueue(…) on a 1-thread executor</text>
+<line x1="568" y1="165" x2="580" y2="165" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="580,165 571.61,169.46 571.61,160.54" fill="#647589"/>
+<rect x="580" y="128" width="168" height="74" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="664.0" y="144.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ensureInitialized()</text>
+<text x="664.0" y="159.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">retry at most every 10 s</text>
+<line x1="748" y1="165" x2="760" y2="165" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="760,165 751.61,169.46 751.61,160.54" fill="#647589"/>
+<rect x="760" y="128" width="168" height="74" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="844.0" y="144.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SensorReadingRepository.insert</text>
+<text x="844.0" y="159.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">PreparedStatement + executeUpdate</text>
+<line x1="928" y1="165" x2="940" y2="165" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="940,165 931.61,169.46 931.61,160.54" fill="#647589"/>
+<rect x="940" y="128" width="168" height="74" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="1024.0" y="144.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SQLite basinwatch.db</text>
+<text x="1024.0" y="159.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#3F9E7C" text-anchor="middle" font-weight="normal">row appended</text>
+<rect x="40" y="216" width="1100" height="46.4" rx="6" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.3"/>
+<rect x="40" y="216" width="4" height="46.4" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<circle cx="57" cy="230.6" r="7.5" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="57" y="234.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="233.96" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">The caller returns immediately. recordSensor() only puts a lambda on a bounded queue (capacity 2 048) —</text>
+<text x="71" y="249.16" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">if that queue is full the update is rejected with a visible message instead of blocking the worker.</text>
+<rect x="40" y="300" width="1100" height="36" rx="7" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="590.0" y="322.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">DIRECTION 2 — READ  ·  button click → table on screen</text>
+<rect x="40" y="350" width="168" height="74" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="124.0" y="366.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DatabaseHistoryPanel</text>
+<text x="124.0" y="381.40000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#2E82AC" text-anchor="middle" font-weight="normal">"Refresh history" / combo box change</text>
+<line x1="208" y1="387" x2="220" y2="387" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="220,387 211.61,391.46 211.61,382.54" fill="#647589"/>
+<rect x="220" y="350" width="168" height="74" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="304.0" y="366.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">engine.loadDatabaseHistory</text>
+<text x="304.0" y="381.40000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#2E82AC" text-anchor="middle" font-weight="normal">returns CompletableFuture&lt;List&lt;…&gt;&gt;</text>
+<line x1="388" y1="387" x2="400" y2="387" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="400,387 391.61,391.46 391.61,382.54" fill="#647589"/>
+<rect x="400" y="350" width="168" height="74" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="484.0" y="366.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DatabaseService.loadHistory</text>
+<text x="484.0" y="381.40000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">switch on DatabaseHistoryType</text>
+<line x1="568" y1="387" x2="580" y2="387" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="580,387 571.61,391.46 571.61,382.54" fill="#647589"/>
+<rect x="580" y="350" width="168" height="74" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="664.0" y="366.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Repository.findRecent(200)</text>
+<text x="664.0" y="381.40000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#C8545C" text-anchor="middle" font-weight="normal">SELECT … ORDER BY id DESC LIMIT ?</text>
+<line x1="748" y1="387" x2="760" y2="387" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="760,387 751.61,391.46 751.61,382.54" fill="#647589"/>
+<rect x="760" y="350" width="168" height="74" rx="8" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="844.0" y="366.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ResultSet → DatabaseHistoryEntry</text>
+<text x="844.0" y="381.40000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#D9962B" text-anchor="middle" font-weight="normal">rows mapped to immutable values</text>
+<line x1="928" y1="387" x2="940" y2="387" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<polygon points="940,387 931.61,391.46 931.61,382.54" fill="#647589"/>
+<rect x="940" y="350" width="168" height="74" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="1024.0" y="366.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">whenComplete → invokeLater</text>
+<text x="1024.0" y="381.40000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.6" fill="#2E82AC" text-anchor="middle" font-weight="normal">tableModel.setEntries(entries)</text>
+<rect x="40" y="446" width="1100" height="90" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="590.0" y="466.76" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.2" fill="#1A2A3D" text-anchor="middle" font-weight="bold">THE STALE-RESULT GUARD</text>
+<text x="590.0" y="482.56" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#33465C" text-anchor="middle" font-weight="normal">DatabaseHistoryPanel keeps an AtomicLong requestNumber. Each refresh increments it and captures the value.</text>
+<text x="590.0" y="497.36" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#33465C" text-anchor="middle" font-weight="normal">When the future completes, the callback compares its captured number with the current one; if they differ, the</text>
+<text x="590.0" y="512.16" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.8" fill="#33465C" text-anchor="middle" font-weight="normal">result is discarded. A slow earlier query can therefore never overwrite the display of a newer one.</text>
+<rect x="40" y="556" width="1100" height="76" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="577.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#0E1B2C" text-anchor="middle" font-weight="bold">BOUNDARY RULE</text>
+<text x="590.0" y="593.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">Every database call happens on the basin-database thread or the basin-control thread.</text>
+<text x="590.0" y="608.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">Swing is touched only inside SwingUtilities.invokeLater(...) — the single rule that keeps the interface responsive.</text>
+<rect x="40" y="654" width="1100" height="46.4" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="654" width="4" height="46.4" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="668.6" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="672.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="671.96" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">Notice the asymmetry: writes are fire-and-forget; reads return a future the panel can wait on without blocking.</text>
+<text x="71" y="687.1600000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">That is what makes the optional database safe to add to an application that must keep running without it.</text></svg>

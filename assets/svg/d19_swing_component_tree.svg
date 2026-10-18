@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="780" viewBox="0 0 1180 780"><rect width="1180" height="780" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 21 — Swing component containment and the event-dispatch thread</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">A Swing window is a tree of components. Only one thread is allowed to touch that tree.</text>
+<rect x="40" y="78" width="640" height="420" rx="8" fill="none" stroke="#2E82AC" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="68.65" width="303.09999999999997" height="18.7" rx="4" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<text x="60" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">CONTAINMENT TREE  —  MainFrame extends JFrame</text>
+<rect x="70" y="112" width="580" height="40" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="360.0" y="132.775" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">JFrame  (MainFrame)   —  content pane uses BorderLayout</text>
+<rect x="70" y="168" width="580" height="54" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="82" y="182" width="66" height="26" rx="13.0" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<text x="115.0" y="198.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">NORTH</text>
+<text x="162" y="192" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="start" font-weight="bold">header panel</text>
+<text x="162" y="210" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="start" font-weight="normal">toolbar buttons: Start observations · Advance · Inject storm · Save · Restore · Report</text>
+<line x1="120" y1="156" x2="120" y2="168" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="70" y="230" width="580" height="54" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="82" y="244" width="66" height="26" rx="13.0" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<text x="115.0" y="260.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">CENTER</text>
+<text x="162" y="254" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="start" font-weight="bold">JSplitPane (workSplit)</text>
+<text x="162" y="272" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="start" font-weight="normal">left: BasinMapPanel + response panel   ·   right: missions + inspector</text>
+<line x1="120" y1="226" x2="120" y2="230" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="70" y="292" width="580" height="54" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="82" y="306" width="66" height="26" rx="13.0" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<text x="115.0" y="322.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SOUTH</text>
+<text x="162" y="316" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="start" font-weight="bold">footer panel</text>
+<text x="162" y="334" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="start" font-weight="normal">statusLabel — the single place engine status messages appear</text>
+<line x1="120" y1="288" x2="120" y2="292" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="70" y="354" width="580" height="54" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="82" y="368" width="66" height="26" rx="13.0" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<text x="115.0" y="384.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">child</text>
+<text x="162" y="378" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="start" font-weight="bold">DatabaseHistoryPanel</text>
+<text x="162" y="396" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="start" font-weight="normal">JComboBox + JButton + JTable (AbstractTableModel)</text>
+<line x1="120" y1="350" x2="120" y2="354" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="70" y="416" width="580" height="54" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="82" y="430" width="66" height="26" rx="13.0" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.3"/>
+<text x="115.0" y="446.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#1A2A3D" text-anchor="middle" font-weight="bold">child</text>
+<text x="162" y="440" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="start" font-weight="bold">BasinMapPanel</text>
+<text x="162" y="458" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="start" font-weight="normal">custom paintComponent: rounded zone tiles + risk colours</text>
+<line x1="120" y1="412" x2="120" y2="416" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="710" y="78" width="430" height="420" rx="8" fill="none" stroke="#6C5CA8" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="722" y="68.65" width="213.77999999999997" height="18.7" rx="4" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<text x="730" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">THE EVENT-DISPATCH THREAD (EDT)</text>
+<rect x="736" y="112" width="378" height="56" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="925.0" y="132.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">single thread, one queue</text>
+<text x="925.0" y="147.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">Swing posts every input event and every repaint request here</text>
+<rect x="736" y="184" width="378" height="100" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="925.0" y="204.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">RULES THAT KEEP THE UI ALIVE</text>
+<text x="925.0" y="219.48" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">1. Never do I/O or JDBC on the EDT</text>
+<text x="925.0" y="233.67999999999998" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">2. Never loop or sleep on the EDT</text>
+<text x="925.0" y="247.88" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">3. Background work posts results back</text>
+<text x="925.0" y="262.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="middle" font-weight="normal">   with SwingUtilities.invokeLater(...)</text>
+<rect x="736" y="300" width="378" height="84" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="925.0" y="320.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">WHAT WOULD HAPPEN WITHOUT THE RULE</text>
+<text x="925.0" y="335.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#C8545C" text-anchor="middle" font-weight="normal">A slow query or a blocking readLine() would freeze</text>
+<text x="925.0" y="349.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#C8545C" text-anchor="middle" font-weight="normal">paints, clicks and the window itself until it finished.</text>
+<text x="925.0" y="363.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#C8545C" text-anchor="middle" font-weight="normal">The operating system would mark the window "not responding".</text>
+<rect x="736" y="400" width="378" height="82" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="925.0" y="420.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">HOW BASINWATCH OBEYS IT</text>
+<text x="925.0" y="434.92" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">engine.addSnapshotListener(s -&gt; invokeLater(() -&gt; updateSnapshot(s)))</text>
+<text x="925.0" y="448.72" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">engine.closeAsync().whenComplete((v, f) -&gt; invokeLater(() -&gt; dispose()))</text>
+<text x="925.0" y="462.52000000000004" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">history futures complete, then invokeLater updates the JTable</text>
+<rect x="40" y="516" width="1100" height="76" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="537.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#0E1B2C" text-anchor="middle" font-weight="bold">THE HAND-OFF, IN BOTH DIRECTIONS</text>
+<text x="590.0" y="553.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">EDT → background:  a button listener calls an engine command, which returns a CompletableFuture.</text>
+<text x="590.0" y="568.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">background → EDT:  the future's whenComplete callback wraps the UI update in SwingUtilities.invokeLater.</text>
+<rect x="40" y="612" width="1100" height="46.4" rx="6" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.3"/>
+<rect x="40" y="612" width="4" height="46.4" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<circle cx="57" cy="626.6" r="7.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="57" y="630.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="629.96" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">A javax.swing.Timer fires refreshDiagnostics() every 900 ms on the EDT. Because it runs on the EDT it must</text>
+<text x="71" y="645.1600000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">stay cheap: it reads an immutable EngineDiagnostics record and sets label text. It never queries the database.</text></svg>

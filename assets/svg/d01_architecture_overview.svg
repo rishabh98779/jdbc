@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="1000" viewBox="0 0 1180 1000"><rect width="1180" height="1000" fill="#FFFFFF"/><text x="40" y="46" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 1 — BasinWatch: the complete Java system</text>
+<text x="40" y="66.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Verified runtime architecture. Every box is a real class in the repository.</text>
+<text x="1140" y="46" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="end" font-weight="bold" letter-spacing="1.2">FULL PAGE</text>
+<rect x="430" y="74" width="320" height="52" rx="26" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="95.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">USER / OPERATOR</text>
+<text x="590.0" y="111.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#0E1B2C" text-anchor="middle" font-weight="normal">Swing window · mouse, keyboard, zone selector</text>
+<line x1="590" y1="126" x2="590" y2="162" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,162 585.54,153.61 594.46,153.61" fill="#2E82AC"/>
+<rect x="60" y="162" width="1060" height="118" rx="8" fill="none" stroke="#2E82AC" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="72" y="152.65" width="373.28" height="18.7" rx="4" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<text x="80" y="165.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">SWING USER INTERFACE  —  the event-dispatch thread (EDT)</text>
+<rect x="84" y="186" width="232" height="78" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="200.0" y="207.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">MainFrame</text>
+<text x="200.0" y="223.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">JFrame · JButton · JList</text>
+<text x="200.0" y="238.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">JSlider · Timer · panels</text>
+<rect x="330" y="186" width="232" height="78" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="446.0" y="207.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BasinMapPanel</text>
+<text x="446.0" y="223.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">JPanel.paintComponent</text>
+<text x="446.0" y="238.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">custom 2-D rendering</text>
+<rect x="576" y="186" width="232" height="78" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="692.0" y="207.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DatabaseHistoryPanel</text>
+<text x="692.0" y="223.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">JTable + AbstractTableModel</text>
+<text x="692.0" y="238.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">CompletableFuture consumer</text>
+<rect x="822" y="186" width="274" height="78" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="959.0" y="207.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BasinWatchApp (main)</text>
+<text x="959.0" y="223.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">UIManager · SwingUtilities.invokeLater</text>
+<text x="959.0" y="238.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">window listener</text>
+<line x1="590" y1="280" x2="590" y2="314" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,314 585.54,305.61 594.46,305.61" fill="#2E82AC"/>
+<rect x="547.1" y="289.55" width="225.79999999999998" height="16.5" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="660" y="300" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="middle" font-weight="normal">user actions call engine commands</text>
+<rect x="300" y="314" width="580" height="48" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="590.0" y="335.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">APPLICATION COMMANDS  —  BasinEngine public API</text>
+<text x="590.0" y="351.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">start() · pause() · step() · dispatch() · injectStorm() · save() · load() · exportReport()</text>
+<line x1="590" y1="362" x2="590" y2="396" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,396 585.54,387.61 594.46,387.61" fill="#2E82AC"/>
+<rect x="60" y="396" width="1060" height="206" rx="8" fill="none" stroke="#6C5CA8" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="72" y="386.65" width="347.76" height="18.7" rx="4" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<text x="80" y="399.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">DOMAIN / ENGINE LAYER  —  BasinEngine owns lifecycle</text>
+<rect x="84" y="420" width="240" height="76" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="204.0" y="441.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BasinModel (aggregate)</text>
+<text x="204.0" y="457.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">6 BasinZone · missions</text>
+<text x="204.0" y="472.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">activity ring buffer · invariants</text>
+<rect x="340" y="420" width="200" height="76" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="440.0" y="441.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ResourceAllocator</text>
+<text x="440.0" y="457.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">synchronized reserve/release</text>
+<text x="440.0" y="472.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">all-or-nothing</text>
+<rect x="556" y="420" width="200" height="76" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="656.0" y="441.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ResponseMission</text>
+<text x="656.0" y="457.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">progress by simulation tick</text>
+<text x="656.0" y="472.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">PUMP / LEVEE / EVAC</text>
+<rect x="772" y="420" width="324" height="76" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="934.0" y="441.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ResponseWorker × 3 (Runnable)</text>
+<text x="934.0" y="457.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">take() → process() → publish</text>
+<text x="934.0" y="472.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">never blocks the EDT</text>
+<rect x="84" y="508" width="456" height="76" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="312.0" y="529.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Immutable snapshots published to the EDT</text>
+<text x="312.0" y="545.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">BasinSnapshot → ZoneSnapshot / MissionSnapshot / ActivityEntry</text>
+<text x="312.0" y="560.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">listeners wrapped in SwingUtilities.invokeLater</text>
+<rect x="556" y="508" width="540" height="76" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="826.0" y="529.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EngineDiagnostics</text>
+<text x="826.0" y="545.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="middle" font-weight="normal">thread states · queue depth · waiting consumers / producers · archive backlog</text>
+<line x1="200" y1="396" x2="200" y2="362" stroke="#3F9E7C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="200,362 204.46,370.39 195.54,370.39" fill="#3F9E7C"/>
+<line x1="200" y1="362" x2="200" y2="330" stroke="#3F9E7C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="200,330 204.46,338.39 195.54,338.39" fill="#3F9E7C"/>
+<rect x="167.65" y="338.025" width="64.69999999999999" height="15.75" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="200" y="348" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#3F9E7C" text-anchor="middle" font-weight="normal">events in</text>
+<rect x="60" y="636" width="1060" height="108" rx="8" fill="none" stroke="#3F9E7C" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="72" y="626.65" width="373.28" height="18.7" rx="4" fill="#DFF2EA" stroke="#DFF2EA" stroke-width="0"/>
+<text x="80" y="639.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="start" font-weight="bold">SENSOR INPUT / I-O PATH  —  character streams and a pipe</text>
+<rect x="84" y="660" width="214" height="66" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="191.0" y="681.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SensorFeed (Thread)</text>
+<text x="191.0" y="697.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">writes encoded lines</text>
+<text x="191.0" y="712.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">PipedWriter</text>
+<line x1="300" y1="693" x2="344" y2="693" stroke="#3F9E7C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="344,693 335.61,697.46 335.61,688.54" fill="#3F9E7C"/>
+<rect x="306.0" y="673.5" width="32.0" height="15.0" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="322" y="683" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">pipe</text>
+<rect x="346" y="660" width="214" height="66" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="453.0" y="681.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SensorIntake (Runnable)</text>
+<text x="453.0" y="697.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">BufferedReader.readLine</text>
+<text x="453.0" y="712.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">parse + validate</text>
+<line x1="562" y1="693" x2="606" y2="693" stroke="#3F9E7C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="606,693 597.61,697.46 597.61,688.54" fill="#3F9E7C"/>
+<rect x="608" y="660" width="230" height="66" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="723.0" y="681.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EventBuffer (bounded 96)</text>
+<text x="723.0" y="697.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">put() waits / take() waits</text>
+<text x="723.0" y="712.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">wait() + notifyAll()</text>
+<line x1="840" y1="693" x2="884" y2="693" stroke="#3F9E7C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="884,693 875.61,697.46 875.61,688.54" fill="#3F9E7C"/>
+<rect x="886" y="660" width="210" height="66" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="991.0" y="681.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ArchiveWorker (Thread)</text>
+<text x="991.0" y="697.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">ArrayBlockingQueue</text>
+<text x="991.0" y="712.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">SensorArchive</text>
+<line x1="590" y1="744" x2="590" y2="782" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,782 585.54,773.61 594.46,773.61" fill="#2E82AC"/>
+<rect x="330" y="782" width="520" height="44" rx="22" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="590.0" y="803.625" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ACCEPTED EVENTS  —  persisted on separate paths</text>
+<line x1="590" y1="826" x2="590" y2="852" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,852 585.54,843.61 594.46,843.61" fill="#2E82AC"/>
+<line x1="300" y1="852" x2="880" y2="852" stroke="#647589" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="300" y1="852" x2="300" y2="880" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="300,880 295.54,871.61 304.46,871.61" fill="#2E82AC"/>
+<line x1="880" y1="852" x2="880" y2="880" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="880,880 875.54,871.61 884.46,871.61" fill="#2E82AC"/>
+<rect x="60" y="880" width="520" height="96" rx="8" fill="none" stroke="#D9962B" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="72" y="870.65" width="194.64" height="18.7" rx="4" fill="#FBEFD6" stroke="#FBEFD6" stroke-width="0"/>
+<text x="80" y="883.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="start" font-weight="bold">FILE PERSISTENCE  —  java.io</text>
+<rect x="80" y="902" width="152" height="58" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="156.0" y="922.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Journal / Report</text>
+<text x="156.0" y="938.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="middle" font-weight="normal">BufferedWriter</text>
+<text x="156.0" y="953.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="middle" font-weight="normal">UTF-8 text</text>
+<rect x="244" y="902" width="152" height="58" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="320.0" y="922.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SensorArchive</text>
+<text x="320.0" y="938.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="middle" font-weight="normal">DataOutputStream</text>
+<text x="320.0" y="953.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="middle" font-weight="normal">typed binary</text>
+<rect x="408" y="902" width="152" height="58" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="484.0" y="922.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SnapshotStore</text>
+<text x="484.0" y="938.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="middle" font-weight="normal">ObjectOutputStream</text>
+<text x="484.0" y="953.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#D9962B" text-anchor="middle" font-weight="normal">atomic replace</text>
+<rect x="600" y="880" width="520" height="96" rx="8" fill="none" stroke="#C8545C" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="612" y="870.65" width="162.73999999999998" height="18.7" rx="4" fill="#F8E0E2" stroke="#F8E0E2" stroke-width="0"/>
+<text x="620" y="883.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#C8545C" text-anchor="start" font-weight="bold">JDBC LAYER  —  java.sql</text>
+<rect x="620" y="902" width="232" height="58" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="736.0" y="922.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DatabaseService</text>
+<text x="736.0" y="938.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#C8545C" text-anchor="middle" font-weight="normal">1-thread executor</text>
+<text x="736.0" y="953.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#C8545C" text-anchor="middle" font-weight="normal">optional · off-EDT</text>
+<rect x="864" y="902" width="240" height="58" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="984.0" y="922.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Repositories → SQLite</text>
+<text x="984.0" y="938.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#C8545C" text-anchor="middle" font-weight="normal">PreparedStatement</text>
+<text x="984.0" y="953.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#C8545C" text-anchor="middle" font-weight="normal">ResultSet · transactions</text>
+<line x1="880" y1="902" x2="880" y2="852" stroke="#C8545C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="880,852 884.46,860.39 875.54,860.39" fill="#C8545C"/>
+<line x1="984" y1="902" x2="984" y2="840" stroke="#C8545C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="984,840 988.46,848.39 979.54,848.39" fill="#C8545C"/>
+<rect x="888.2" y="862.025" width="171.79999999999998" height="15.75" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="1060" y="872" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#C8545C" text-anchor="end" font-weight="normal">history read back to Swing</text></svg>

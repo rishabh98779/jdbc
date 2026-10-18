@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="900" viewBox="0 0 1180 900"><rect width="1180" height="900" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 2 — Java concepts connection map</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">One page that places every syllabus concept inside the running application.</text>
+<text x="1140" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="end" font-weight="bold" letter-spacing="1.2">FULL PAGE</text>
+<rect x="400" y="66" width="380" height="46" rx="23" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="87.625" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">BASINWATCH — ONE RUNNING JAVA APPLICATION</text>
+<rect x="40" y="140" width="260" height="38" rx="7" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="170.0" y="163.32" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">LANGUAGE FOUNDATIONS</text>
+<rect x="40" y="196" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="196" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="218" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Classes &amp; objects</text>
+<text x="53" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">BasinModel, BasinZone</text>
+<rect x="40" y="259" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="259" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="281" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Interfaces</text>
+<text x="53" y="299" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">BasinEvent contract</text>
+<rect x="40" y="322" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="322" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="344" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Polymorphism</text>
+<text x="53" y="362" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">process(BasinEvent)</text>
+<rect x="40" y="385" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="385" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="407" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Inheritance</text>
+<text x="53" y="425" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">SensorFeed extends Thread</text>
+<rect x="40" y="448" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="448" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="470" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Enums</text>
+<text x="53" y="488" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">RiskLevel, MissionType</text>
+<rect x="40" y="511" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="511" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="533" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Records</text>
+<text x="53" y="551" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">SensorReading, snapshots</text>
+<rect x="40" y="574" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="574" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="596" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Encapsulation</text>
+<text x="53" y="614" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">private fields + methods</text>
+<rect x="40" y="637" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="637" width="4" height="56" rx="2" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="0"/>
+<text x="53" y="659" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">POJO vs JavaBean</text>
+<text x="53" y="677" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">record vs getX/setX</text>
+<line x1="170" y1="140" x2="170" y2="128" stroke="#6C5CA8" stroke-width="1.9" stroke-linecap="round"/>
+<line x1="170" y1="128" x2="590" y2="128" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="590" y1="128" x2="590" y2="114" stroke="#0E1B2C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,114 594.46,122.39 585.54,122.39" fill="#0E1B2C"/>
+<rect x="320" y="140" width="260" height="38" rx="7" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.4"/>
+<text x="450.0" y="163.32" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">JAVA I/O</text>
+<rect x="320" y="196" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="196" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="218" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Byte streams</text>
+<text x="333" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">SensorArchive file</text>
+<rect x="320" y="259" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="259" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="281" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Character streams</text>
+<text x="333" y="299" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">operations.log</text>
+<rect x="320" y="322" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="322" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="344" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Buffered streams</text>
+<text x="333" y="362" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">BufferedWriter / BufferedOutputStream</text>
+<rect x="320" y="385" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="385" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="407" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Data streams</text>
+<text x="333" y="425" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">writeInt / writeUTF / writeDouble</text>
+<rect x="320" y="448" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="448" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="470" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">File &amp; metadata</text>
+<text x="333" y="488" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">AppPaths, SaveCatalog</text>
+<rect x="320" y="511" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="511" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="533" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Serialization</text>
+<text x="333" y="551" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">SessionSnapshot</text>
+<rect x="320" y="574" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="574" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="596" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Byte-array streams</text>
+<text x="333" y="614" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">in-memory save payload</text>
+<rect x="320" y="637" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="320" y="637" width="4" height="56" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<text x="333" y="659" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Piped streams</text>
+<text x="333" y="677" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">feed → intake pipe</text>
+<line x1="450" y1="140" x2="450" y2="128" stroke="#D9962B" stroke-width="1.9" stroke-linecap="round"/>
+<line x1="450" y1="128" x2="590" y2="128" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="590" y1="128" x2="590" y2="114" stroke="#0E1B2C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,114 594.46,122.39 585.54,122.39" fill="#0E1B2C"/>
+<rect x="600" y="140" width="260" height="38" rx="7" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="730.0" y="163.32" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">CONCURRENCY</text>
+<rect x="600" y="196" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="196" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="218" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Thread</text>
+<text x="613" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">SensorFeed, ArchiveWorker</text>
+<rect x="600" y="259" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="259" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="281" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Runnable</text>
+<text x="613" y="299" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">SensorIntake, ResponseWorker</text>
+<rect x="600" y="322" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="322" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="344" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Monitors</text>
+<text x="613" y="362" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">EventBuffer, allocator</text>
+<rect x="600" y="385" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="385" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="407" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">wait / notifyAll</text>
+<text x="613" y="425" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">bounded queue signalling</text>
+<rect x="600" y="448" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="448" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="470" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Producer / consumer</text>
+<text x="613" y="488" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">feed → buffer → workers</text>
+<rect x="600" y="511" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="511" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="533" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">interrupt / join</text>
+<text x="613" y="551" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">orderly shutdown</text>
+<rect x="600" y="574" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="574" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="596" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Deadlock avoidance</text>
+<text x="613" y="614" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">one short inventory lock</text>
+<rect x="600" y="637" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="600" y="637" width="4" height="56" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<text x="613" y="659" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Priority (hint only)</text>
+<text x="613" y="677" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">archive worker experiment</text>
+<line x1="730" y1="140" x2="730" y2="128" stroke="#3F9E7C" stroke-width="1.9" stroke-linecap="round"/>
+<line x1="730" y1="128" x2="590" y2="128" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="590" y1="128" x2="590" y2="114" stroke="#0E1B2C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,114 594.46,122.39 585.54,122.39" fill="#0E1B2C"/>
+<rect x="880" y="140" width="260" height="38" rx="7" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.4"/>
+<text x="1010.0" y="163.32" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="0.6">DATA, UI &amp; BUILD</text>
+<rect x="880" y="196" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="196" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="218" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">JDBC driver</text>
+<text x="893" y="236" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">sqlite-jdbc in pom.xml</text>
+<rect x="880" y="259" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="259" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="281" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Connection</text>
+<text x="893" y="299" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">openConnection()</text>
+<rect x="880" y="322" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="322" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="344" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">PreparedStatement</text>
+<text x="893" y="362" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">parameter binding</text>
+<rect x="880" y="385" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="385" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="407" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">ResultSet</text>
+<text x="893" y="425" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">findRecent mapping</text>
+<rect x="880" y="448" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="448" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="470" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Transactions</text>
+<text x="893" y="488" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">commit / rollback</text>
+<rect x="880" y="511" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="511" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="533" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Swing components</text>
+<text x="893" y="551" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">JFrame, JTable, JPanel</text>
+<rect x="880" y="574" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="574" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="596" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Event handling</text>
+<text x="893" y="614" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">ActionListener → engine</text>
+<rect x="880" y="637" width="260" height="56" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="880" y="637" width="4" height="56" rx="2" fill="#C8545C" stroke="#C8545C" stroke-width="0"/>
+<text x="893" y="659" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Maven &amp; pom.xml</text>
+<text x="893" y="677" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#647589" text-anchor="start" font-weight="normal">dependency → jar</text>
+<line x1="1010" y1="140" x2="1010" y2="128" stroke="#C8545C" stroke-width="1.9" stroke-linecap="round"/>
+<line x1="1010" y1="128" x2="590" y2="128" stroke="#DCE4ED" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="590" y1="128" x2="590" y2="114" stroke="#0E1B2C" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="590,114 594.46,122.39 585.54,122.39" fill="#0E1B2C"/>
+<rect x="40" y="712" width="1100" height="47.0" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="712" width="4" height="47.0" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="726.75" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="730.75" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="730.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">Reading the map: each concept belongs to a real component. Chapters 4–8 build the I/O column, Chapters 10–14 the database column, Chapter 15–16 the interface column.</text>
+<text x="71" y="745.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">The arrows point inward because every technology exists to serve one application, not four separate subjects.</text></svg>

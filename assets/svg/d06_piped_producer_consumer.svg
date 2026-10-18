@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760"><rect width="1180" height="760" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 9 — Piped streams: a producer, a consumer, and a thread boundary</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">SensorFeed and SensorIntake run on different threads and never call each other directly.</text>
+<rect x="60" y="96" width="250" height="96" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="185.0" y="118.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SensorFeed</text>
+<text x="185.0" y="134.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">extends Thread</text>
+<text x="185.0" y="149.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="middle" font-weight="normal">"basin-sensor-feed"</text>
+<rect x="60" y="214" width="250" height="74" rx="9" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="185.0" y="234.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">loop each interval</text>
+<text x="185.0" y="250.1" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#DCE4ED" text-anchor="middle" font-weight="normal">build SensorReading</text>
+<text x="185.0" y="264.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#DCE4ED" text-anchor="middle" font-weight="normal">encode() → one text line</text>
+<rect x="370" y="96" width="220" height="300" rx="14" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.6"/>
+<text x="480" y="128" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold" letter-spacing="1">THE PIPE</text>
+<text x="480" y="150" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#2E82AC" text-anchor="middle" font-weight="normal">PipedWriter → PipedReader</text>
+<rect x="392" y="168" width="176" height="24" rx="4" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1"/>
+<text x="404" y="185" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.3" fill="#2E82AC" text-anchor="start" font-weight="normal">READ|42|G-MIL|MIL|17.500|3.200</text>
+<rect x="392" y="200" width="176" height="24" rx="4" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1"/>
+<text x="404" y="217" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.3" fill="#2E82AC" text-anchor="start" font-weight="normal">READ|42|G-NOR|NOR|9.100|1.400</text>
+<rect x="392" y="232" width="176" height="24" rx="4" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1"/>
+<text x="404" y="249" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.3" fill="#2E82AC" text-anchor="start" font-weight="normal">PULSE|42</text>
+<rect x="392" y="264" width="176" height="24" rx="4" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1"/>
+<text x="404" y="281" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.3" fill="#647589" text-anchor="start" font-weight="normal">…</text>
+<rect x="392" y="296" width="176" height="24" rx="4" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1"/>
+<text x="404" y="313" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.3" fill="#647589" text-anchor="start" font-weight="normal">8 192-character buffer</text>
+<rect x="392" y="328" width="176" height="24" rx="4" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1"/>
+<text x="404" y="345" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.3" fill="#647589" text-anchor="start" font-weight="normal">writer blocks when full</text>
+<rect x="392" y="360" width="176" height="24" rx="4" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1"/>
+<text x="404" y="377" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.3" fill="#647589" text-anchor="start" font-weight="normal">reader blocks when empty</text>
+<rect x="660" y="96" width="250" height="96" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="785.0" y="118.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SensorIntake</text>
+<text x="785.0" y="134.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">implements Runnable</text>
+<text x="785.0" y="149.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="middle" font-weight="normal">"basin-sensor-intake"</text>
+<rect x="660" y="214" width="250" height="74" rx="9" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="785.0" y="234.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">readLine() loop</text>
+<text x="785.0" y="250.1" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#DCE4ED" text-anchor="middle" font-weight="normal">parse + validate record</text>
+<text x="785.0" y="264.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#DCE4ED" text-anchor="middle" font-weight="normal">enqueue or discard</text>
+<rect x="660" y="310" width="250" height="74" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="785.0" y="330.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">malformed record?</text>
+<text x="785.0" y="346.1" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#D9962B" text-anchor="middle" font-weight="normal">warningReporter.accept(...)</text>
+<text x="785.0" y="360.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#D9962B" text-anchor="middle" font-weight="normal">continue — no crash</text>
+<line x1="310" y1="144" x2="368" y2="144" stroke="#3F9E7C" stroke-width="2.2" stroke-linecap="round"/>
+<polygon points="368,144 359.61,148.46 359.61,139.54" fill="#3F9E7C"/>
+<rect x="312.95" y="124.025" width="52.1" height="15.75" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="339" y="134" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#3F9E7C" text-anchor="middle" font-weight="normal">write()</text>
+<line x1="658" y1="144" x2="592" y2="144" stroke="#2E82AC" stroke-width="2.2" stroke-linecap="round"/>
+<polygon points="592,144 600.39,139.54 600.39,148.46" fill="#2E82AC"/>
+<rect x="602.1" y="124.025" width="45.8" height="15.75" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="625" y="134" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#2E82AC" text-anchor="middle" font-weight="normal">read()</text>
+<line x1="785" y1="288" x2="785" y2="308" stroke="#2E82AC" stroke-width="1.9" stroke-linecap="round"/>
+<polygon points="785,308 780.54,299.61 789.46,299.61" fill="#2E82AC"/>
+<rect x="960" y="96" width="180" height="96" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="1050.0" y="117.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">EventBuffer</text>
+<text x="1050.0" y="133.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">bounded 96</text>
+<text x="1050.0" y="148.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="middle" font-weight="normal">put() / take()</text>
+<line x1="912" y1="144" x2="958" y2="144" stroke="#6C5CA8" stroke-width="2.2" stroke-linecap="round"/>
+<polygon points="958,144 949.61,148.46 949.61,139.54" fill="#6C5CA8"/>
+<rect x="960" y="214" width="180" height="74" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="1050.0" y="234.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">3 ResponseWorkers</text>
+<text x="1050.0" y="250.1" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#6C5CA8" text-anchor="middle" font-weight="normal">consume events</text>
+<text x="1050.0" y="264.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#6C5CA8" text-anchor="middle" font-weight="normal">process + persist</text>
+<rect x="60" y="420" width="1080" height="62.5" rx="6" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.3"/>
+<rect x="60" y="420" width="4" height="62.5" rx="2" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="0"/>
+<circle cx="77" cy="434.75" r="7.5" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="77" y="438.75" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="91" y="438.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">Why a pipe at all?  It gives the feed a real blocking endpoint, so intake can wait for data instead of</text>
+<text x="91" y="453.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">polling a shared list. The two threads share no mutable object — they share a stream, which is a much</text>
+<text x="91" y="469.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">narrower contract. This is the textbook piped-stream idea used for a genuine purpose.</text>
+<rect x="60" y="540" width="1080" height="76" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="600.0" y="561.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#0E1B2C" text-anchor="middle" font-weight="bold">WHAT BELONGS TO WHOM</text>
+<text x="600.0" y="577.9" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="middle" font-weight="normal">The PIPE owns transport and back-pressure  ·  the THREAD owns execution and lifecycle  ·  </text>
+<text x="600.0" y="593.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="middle" font-weight="normal">the BUFFER owns queuing policy  ·  the MODEL owns domain state and invariants.</text>
+<rect x="60" y="640" width="1080" height="47.0" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="60" y="640" width="4" height="47.0" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="77" cy="654.75" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="77" y="658.75" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="91" y="658.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">Blocking read: readLine() returns null only when the writer closes. Shutdown therefore closes the</text>
+<text x="91" y="673.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">writer (SensorFeed.requestStop) so intake ends its loop naturally instead of being killed.</text></svg>

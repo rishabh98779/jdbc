@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="860" viewBox="0 0 1180 860"><rect width="1180" height="860" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 13 — JDBC architecture: who does what</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Your code speaks to one standard interface. A driver translates it to one database.</text>
+<rect x="40" y="84" width="320" height="300" rx="8" fill="none" stroke="#6C5CA8" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="74.65" width="118.08" height="18.7" rx="4" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<text x="60" y="87.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">APPLICATION CODE</text>
+<rect x="64" y="116" width="272" height="60" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="200.0" y="136.6" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">com.basinwatch.db</text>
+<text x="200.0" y="151.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#6C5CA8" text-anchor="middle" font-weight="normal">SensorReadingRepository · MissionRepository</text>
+<text x="200.0" y="165.20000000000002" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#6C5CA8" text-anchor="middle" font-weight="normal">OperationalEventRepository · ResourceUsageRepository</text>
+<rect x="64" y="190" width="272" height="58" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="200.0" y="210.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DatabaseService</text>
+<text x="200.0" y="225.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">bounded single-thread executor</text>
+<text x="200.0" y="239.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">off the Swing event thread</text>
+<rect x="64" y="262" width="272" height="58" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="200.0" y="282.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DatabaseManager</text>
+<text x="200.0" y="297.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">builds jdbc:sqlite:&lt;path&gt;</text>
+<text x="200.0" y="311.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">DriverManager.getConnection</text>
+<rect x="64" y="334" width="272" height="34" rx="8" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="200.0" y="354.35" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">java.sql.* interfaces only</text>
+<rect x="400" y="84" width="300" height="300" rx="8" fill="none" stroke="#2E82AC" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="412" y="74.65" width="143.6" height="18.7" rx="4" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<text x="420" y="87.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">JDBC API  (java.sql)</text>
+<rect x="424" y="116" width="252" height="44" rx="7" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="550.0" y="131.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DriverManager</text>
+<text x="550.0" y="146.20000000000002" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">opens a connection from a URL</text>
+<rect x="424" y="168" width="252" height="44" rx="7" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="550.0" y="183.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Connection</text>
+<text x="550.0" y="198.20000000000002" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">a session with the database</text>
+<rect x="424" y="220" width="252" height="44" rx="7" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="550.0" y="235.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Statement / PreparedStatement</text>
+<text x="550.0" y="250.20000000000002" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">carries SQL to the database</text>
+<rect x="424" y="272" width="252" height="44" rx="7" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="550.0" y="287.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ResultSet</text>
+<text x="550.0" y="302.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">a cursor over returned rows</text>
+<rect x="424" y="324" width="252" height="44" rx="7" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="550.0" y="339.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">SQLException</text>
+<text x="550.0" y="354.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">the standard failure type</text>
+<rect x="740" y="84" width="400" height="300" rx="8" fill="none" stroke="#3F9E7C" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="752" y="74.65" width="188.26" height="18.7" rx="4" fill="#DFF2EA" stroke="#DFF2EA" stroke-width="0"/>
+<text x="760" y="87.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#3F9E7C" text-anchor="start" font-weight="bold">JDBC DRIVER  (from pom.xml)</text>
+<rect x="764" y="116" width="352" height="72" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="940.0" y="136.28" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.6" fill="#1A2A3D" text-anchor="middle" font-weight="bold">org.xerial:sqlite-jdbc 3.50.3.0</text>
+<text x="940.0" y="151.08" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">Registered as java.sql.Driver via META-INF/services</text>
+<text x="940.0" y="164.88000000000002" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">Maven downloads it; the shade plugin packs it into the jar</text>
+<rect x="764" y="200" width="352" height="58" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="940.0" y="220.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">translates standard calls</text>
+<text x="940.0" y="234.92000000000002" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">prepareStatement(SQL) → SQLite prepared statement</text>
+<text x="940.0" y="248.72000000000003" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#3F9E7C" text-anchor="middle" font-weight="normal">setString / setDouble / setInt → bound values</text>
+<rect x="764" y="270" width="352" height="58" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="940.0" y="290.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">native SQLite engine</text>
+<text x="940.0" y="304.92" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#D9962B" text-anchor="middle" font-weight="normal">embedded C library loaded in-process</text>
+<text x="940.0" y="318.72" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#D9962B" text-anchor="middle" font-weight="normal">no server, no port, no network</text>
+<rect x="764" y="340" width="352" height="34" rx="8" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="940.0" y="360.35" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">data/basinwatch.db</text>
+<line x1="340" y1="200" x2="396" y2="200" stroke="#6C5CA8" stroke-width="2.1" stroke-linecap="round"/>
+<polygon points="396,200 387.61,204.46 387.61,195.54" fill="#6C5CA8"/>
+<rect x="334.0" y="180.5" width="68.0" height="15.0" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="368" y="190" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#6C5CA8" text-anchor="middle" font-weight="normal">JDBC calls</text>
+<line x1="704" y1="200" x2="760" y2="200" stroke="#2E82AC" stroke-width="2.1" stroke-linecap="round"/>
+<polygon points="760,200 751.61,204.46 751.61,195.54" fill="#2E82AC"/>
+<rect x="698.0" y="180.5" width="68.0" height="15.0" rx="3" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0"/>
+<text x="732" y="190" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#2E82AC" text-anchor="middle" font-weight="normal">driver API</text>
+<line x1="940" y1="388" x2="940" y2="404" stroke="#3F9E7C" stroke-width="2.1" stroke-linecap="round"/>
+<polygon points="940,404 935.54,395.61 944.46,395.61" fill="#3F9E7C"/>
+<rect x="40" y="412" width="1100" height="66" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="433.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#0E1B2C" text-anchor="middle" font-weight="bold">THE KEY IDEA</text>
+<text x="590.0" y="449.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="middle" font-weight="normal">JDBC is an interface, not a database. Your code is written against java.sql, so the driver — not your code —</text>
+<text x="590.0" y="465.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="middle" font-weight="normal">knows whether the database is SQLite, PostgreSQL or Oracle. Changing database means changing a driver and a URL.</text>
+<text x="40" y="528" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="15" fill="#0E1B2C" text-anchor="start" font-weight="bold">The four JDBC driver types</text>
+<rect x="40" y="546" width="260" height="150" rx="9" fill="#FFFFFF" stroke="#647589" stroke-width="1.5"/>
+<rect x="40" y="546" width="260" height="32" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<rect x="40" y="566" width="260" height="12" rx="0" fill="#EDF2F7" stroke="#EDF2F7" stroke-width="0"/>
+<text x="53" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="start" font-weight="bold">Type 1</text>
+<text x="286" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="end" font-weight="bold">not used</text>
+<text x="53" y="600" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">JDBC–ODBC bridge</text>
+<text x="53" y="622" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Translates JDBC into ODBC calls.</text>
+<text x="53" y="637" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Needs a native ODBC driver.</text>
+<text x="53" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Effectively removed from modern Java.</text>
+<rect x="313" y="546" width="260" height="150" rx="9" fill="#FFFFFF" stroke="#647589" stroke-width="1.5"/>
+<rect x="313" y="546" width="260" height="32" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<rect x="313" y="566" width="260" height="12" rx="0" fill="#EDF2F7" stroke="#EDF2F7" stroke-width="0"/>
+<text x="326" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="start" font-weight="bold">Type 2</text>
+<text x="559" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="end" font-weight="bold">not used</text>
+<text x="326" y="600" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Native-API, partly Java</text>
+<text x="326" y="622" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Calls the database vendor's</text>
+<text x="326" y="637" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">native client library through JNI.</text>
+<text x="326" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Needs that library installed.</text>
+<rect x="586" y="546" width="260" height="150" rx="9" fill="#FFFFFF" stroke="#647589" stroke-width="1.5"/>
+<rect x="586" y="546" width="260" height="32" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<rect x="586" y="566" width="260" height="12" rx="0" fill="#EDF2F7" stroke="#EDF2F7" stroke-width="0"/>
+<text x="599" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="start" font-weight="bold">Type 3</text>
+<text x="832" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#647589" text-anchor="end" font-weight="bold">not used</text>
+<text x="599" y="600" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Network-protocol, all Java</text>
+<text x="599" y="622" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Talks to a middleware server</text>
+<text x="599" y="637" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">that translates to the database.</text>
+<text x="599" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Adds a network hop.</text>
+<rect x="859" y="546" width="260" height="150" rx="9" fill="#FFFFFF" stroke="#3F9E7C" stroke-width="1.5"/>
+<rect x="859" y="546" width="260" height="32" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<rect x="859" y="566" width="260" height="12" rx="0" fill="#DFF2EA" stroke="#DFF2EA" stroke-width="0"/>
+<text x="872" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#1A2A3D" text-anchor="start" font-weight="bold">Type 4</text>
+<text x="1105" y="568" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="end" font-weight="bold">SQLite driver</text>
+<text x="872" y="600" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Direct / thin, pure Java</text>
+<text x="872" y="622" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">Speaks the database's own</text>
+<text x="872" y="637" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">protocol from Java code.</text>
+<text x="872" y="652" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#33465C" text-anchor="start" font-weight="normal">No extra install for the caller.</text>
+<rect x="40" y="712" width="1100" height="61.900000000000006" rx="6" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.3"/>
+<rect x="40" y="712" width="4" height="61.900000000000006" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<circle cx="57" cy="726.65" r="7.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="57" y="730.65" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.3" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="730.04" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.3" fill="#1A2A3D" text-anchor="start" font-weight="normal">TECHNICAL CLARIFICATION: sqlite-jdbc is used here as a Type 4-style, self-contained driver — application code</text>
+<text x="71" y="745.3399999999999" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.3" fill="#1A2A3D" text-anchor="start" font-weight="normal">needs no separate client library. Internally it ships and loads a native SQLite engine, so "pure Java" describes the</text>
+<text x="71" y="760.64" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.3" fill="#1A2A3D" text-anchor="start" font-weight="normal">caller's experience, not the absence of native code. There is also no server: SQLite is a file, not a service.</text></svg>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="880" viewBox="0 0 1180 880"><rect width="1180" height="880" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 4 — Component dependency graph</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Who creates whom, and which direction dependencies are allowed to point.</text>
+<rect x="40" y="84" width="230" height="66" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="155.0" y="102.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">app.BasinWatchApp</text>
+<text x="155.0" y="116.52000000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">main() · bootstrap</text>
+<rect x="300" y="84" width="230" height="66" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="415.0" y="102.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">app.MainFrame</text>
+<text x="415.0" y="116.52000000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">JFrame · UI only</text>
+<rect x="560" y="84" width="230" height="66" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="675.0" y="102.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">app.BasinMapPanel</text>
+<text x="675.0" y="116.52000000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">JPanel · painting</text>
+<rect x="820" y="84" width="300" height="66" rx="9" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="970.0" y="102.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">app.DatabaseHistoryPanel</text>
+<text x="970.0" y="116.52000000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#2E82AC" text-anchor="middle" font-weight="normal">JTable · reads via engine</text>
+<rect x="300" y="200" width="230" height="70" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="415.0" y="218.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">engine.BasinEngine</text>
+<text x="415.0" y="232.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#6C5CA8" text-anchor="middle" font-weight="normal">lifecycle · wiring · futures</text>
+<rect x="40" y="200" width="230" height="70" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="155.0" y="218.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">engine.EventBuffer</text>
+<text x="155.0" y="232.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#6C5CA8" text-anchor="middle" font-weight="normal">bounded monitor</text>
+<rect x="560" y="200" width="230" height="70" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="675.0" y="218.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">engine.SensorFeed</text>
+<text x="675.0" y="232.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#6C5CA8" text-anchor="middle" font-weight="normal">Thread · PipedWriter</text>
+<rect x="820" y="200" width="300" height="70" rx="9" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="970.0" y="218.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">engine.SensorIntake / ArchiveWorker</text>
+<text x="970.0" y="232.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#6C5CA8" text-anchor="middle" font-weight="normal">Runnable / Thread</text>
+<rect x="40" y="320" width="230" height="74" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="155.0" y="338.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">domain.BasinModel</text>
+<text x="155.0" y="352.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#3F9E7C" text-anchor="middle" font-weight="normal">aggregate · invariants</text>
+<rect x="300" y="320" width="230" height="74" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="415.0" y="338.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">domain.BasinZone</text>
+<text x="415.0" y="352.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#3F9E7C" text-anchor="middle" font-weight="normal">water + risk</text>
+<rect x="560" y="320" width="230" height="74" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="675.0" y="338.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">domain.ResourceAllocator</text>
+<text x="675.0" y="352.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#3F9E7C" text-anchor="middle" font-weight="normal">synchronized stock</text>
+<rect x="820" y="320" width="300" height="74" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="970.0" y="338.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">domain.BasinEvent / Snapshot records</text>
+<text x="970.0" y="352.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#3F9E7C" text-anchor="middle" font-weight="normal">immutable values</text>
+<rect x="40" y="444" width="230" height="74" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="155.0" y="462.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">io.AppPaths / SaveCatalog</text>
+<text x="155.0" y="476.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#D9962B" text-anchor="middle" font-weight="normal">paths + metadata</text>
+<rect x="300" y="444" width="230" height="74" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="415.0" y="462.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">io.OperationalJournal</text>
+<text x="415.0" y="476.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#D9962B" text-anchor="middle" font-weight="normal">BufferedWriter</text>
+<rect x="560" y="444" width="230" height="74" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="675.0" y="462.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">io.SensorArchive</text>
+<text x="675.0" y="476.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#D9962B" text-anchor="middle" font-weight="normal">DataOutputStream</text>
+<rect x="820" y="444" width="300" height="74" rx="9" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="970.0" y="462.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">io.SnapshotStore / SessionSnapshot</text>
+<text x="970.0" y="476.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#D9962B" text-anchor="middle" font-weight="normal">ObjectOutputStream</text>
+<rect x="300" y="568" width="230" height="74" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="415.0" y="586.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">db.DatabaseService</text>
+<text x="415.0" y="600.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#C8545C" text-anchor="middle" font-weight="normal">1-thread executor</text>
+<rect x="560" y="568" width="230" height="74" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="675.0" y="586.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">db.DatabaseManager</text>
+<text x="675.0" y="600.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#C8545C" text-anchor="middle" font-weight="normal">Connection factory</text>
+<rect x="820" y="568" width="300" height="74" rx="9" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.5"/>
+<text x="970.0" y="586.12" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.4" fill="#1A2A3D" text-anchor="middle" font-weight="bold">db.*Repository</text>
+<text x="970.0" y="600.52" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.4" fill="#C8545C" text-anchor="middle" font-weight="normal">PreparedStatement + ResultSet</text>
+<line x1="300" y1="150" x2="300" y2="198" stroke="#2E82AC" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="300,198 296.24,190.94 303.76,190.94" fill="#2E82AC"/>
+<line x1="415" y1="150" x2="590" y2="198" stroke="#2E82AC" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="590,198 582.19,199.75 584.18,192.51" fill="#2E82AC"/>
+<line x1="880" y1="150" x2="880" y2="198" stroke="#2E82AC" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="880,198 876.24,190.94 883.76,190.94" fill="#2E82AC"/>
+<line x1="415" y1="270" x2="150" y2="318" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="150,318 156.28,313.05 157.62,320.44" fill="#6C5CA8"/>
+<line x1="500" y1="270" x2="600" y2="318" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="600,318 592.01,318.33 595.26,311.56" fill="#6C5CA8"/>
+<line x1="640" y1="270" x2="660" y2="318" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="660,318 653.82,312.92 660.75,310.04" fill="#6C5CA8"/>
+<line x1="940" y1="270" x2="940" y2="318" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="940,318 936.24,310.94 943.76,310.94" fill="#6C5CA8"/>
+<line x1="400" y1="270" x2="340" y2="318" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="340,318 343.17,310.65 347.86,316.52" fill="#6C5CA8"/>
+<line x1="360" y1="394" x2="340" y2="442" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="340,442 339.25,434.04 346.18,436.92" fill="#3F9E7C"/>
+<line x1="400" y1="394" x2="620" y2="442" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="620,442 612.30,444.16 613.90,436.82" fill="#3F9E7C"/>
+<line x1="430" y1="394" x2="400" y2="442" stroke="#3F9E7C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="400,442 400.56,434.02 406.93,438.00" fill="#3F9E7C"/>
+<line x1="430" y1="270" x2="150" y2="442" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="150,442 154.05,435.10 157.98,441.50" fill="#6C5CA8"/>
+<line x1="430" y1="270" x2="900" y2="442" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="900,442 892.08,443.10 894.66,436.05" fill="#6C5CA8"/>
+<line x1="430" y1="270" x2="415" y2="566" stroke="#6C5CA8" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="415,566 411.61,558.76 419.11,559.14" fill="#6C5CA8"/>
+<line x1="660" y1="642" x2="660" y2="640" stroke="#C8545C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="660,640 663.76,647.06 656.24,647.06" fill="#C8545C"/>
+<line x1="530" y1="640" x2="660" y2="640" stroke="#C8545C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="660,640 652.94,643.76 652.94,636.24" fill="#C8545C"/>
+<line x1="415" y1="642" x2="415" y2="642" stroke="#C8545C" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="415,642 407.94,645.76 407.94,638.24" fill="#C8545C"/>
+<line x1="660" y1="642" x2="660" y2="640" stroke="#C8545C" stroke-width="1.9" stroke-linecap="round"/>
+<rect x="40" y="672" width="1100" height="148" rx="8" fill="none" stroke="#647589" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="662.65" width="118.08" height="18.7" rx="4" fill="#EDF2F7" stroke="#EDF2F7" stroke-width="0"/>
+<text x="60" y="675.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#647589" text-anchor="start" font-weight="bold">DEPENDENCY RULES</text>
+<text x="64" y="706" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="12" fill="#1A2A3D" text-anchor="start" font-weight="bold">app  →  engine  →  domain, io, db</text>
+<text x="64" y="730" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">io and db never import app or engine. domain imports nothing from the other packages.</text>
+<text x="64" y="754" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Repositories are constructed by DatabaseService, which is constructed by BasinEngine — manual constructor injection.</text>
+<text x="64" y="778" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Dependencies point one way. That is why the model can be tested with no database, no files and no window.</text>
+<text x="64" y="802" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">InvariantSuite exploits exactly this: it drives BasinModel, SnapshotStore and DatabaseService directly.</text></svg>

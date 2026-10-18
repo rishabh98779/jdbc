@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="700" viewBox="0 0 1180 700"><rect width="1180" height="700" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 12 — Which BasinWatch class uses which stream, and why</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Nine I/O classes, one purpose each. Choosing the wrong one changes the meaning of the data.</text>
+<rect x="40" y="80" width="1100" height="44" rx="0" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1"/>
+<text x="49" y="106.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="start" font-weight="bold">Class</text>
+<text x="279" y="106.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="start" font-weight="bold">Stream family</text>
+<text x="529" y="106.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="start" font-weight="bold">What it stores</text>
+<text x="849" y="106.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="start" font-weight="bold">Why that family</text>
+<line x1="40" y1="80" x2="1140" y2="80" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<text x="49" y="150.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">AppPaths</text>
+<text x="279" y="150.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">java.nio.file.Path / Files</text>
+<text x="529" y="150.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">directory layout and the database path</text>
+<text x="849" y="150.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">Paths are metadata, not content</text>
+<line x1="40" y1="124" x2="1140" y2="124" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<rect x="40" y="168" width="1100" height="44" rx="0" fill="#F2F6FA" stroke="#F2F6FA" stroke-width="0"/>
+<text x="49" y="194.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">SaveCatalog</text>
+<text x="279" y="194.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">java.io.File</text>
+<text x="529" y="194.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">list of *.bws saves, newest first</text>
+<text x="849" y="194.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">Listing needs metadata only</text>
+<line x1="40" y1="168" x2="1140" y2="168" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<text x="49" y="238.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">OperationalJournal</text>
+<text x="279" y="238.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">BufferedWriter (Writer)</text>
+<text x="529" y="238.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">timestamped audit lines, UTF-8</text>
+<text x="849" y="238.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">Humans must read it</text>
+<line x1="40" y1="212" x2="1140" y2="212" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<rect x="40" y="256" width="1100" height="44" rx="0" fill="#F2F6FA" stroke="#F2F6FA" stroke-width="0"/>
+<text x="49" y="282.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">ReportWriter</text>
+<text x="279" y="282.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">BufferedWriter (Writer)</text>
+<text x="529" y="282.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">a formatted situation report</text>
+<text x="849" y="282.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">A report is text by definition</text>
+<line x1="40" y1="256" x2="1140" y2="256" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<text x="49" y="326.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">SensorArchive</text>
+<text x="279" y="326.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">DataOutputStream</text>
+<text x="529" y="326.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">typed tick / station / rain / rise</text>
+<text x="849" y="326.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">Values must keep their types</text>
+<line x1="40" y1="300" x2="1140" y2="300" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<rect x="40" y="344" width="1100" height="44" rx="0" fill="#F2F6FA" stroke="#F2F6FA" stroke-width="0"/>
+<text x="49" y="370.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">ArchiveWorker</text>
+<text x="279" y="370.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">ArrayBlockingQueue + Thread</text>
+<text x="529" y="370.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">off-thread archive writes</text>
+<text x="849" y="370.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">Disk latency must not block intake</text>
+<line x1="40" y1="344" x2="1140" y2="344" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<text x="49" y="414.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">SnapshotStore</text>
+<text x="279" y="414.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">ObjectOutputStream</text>
+<text x="529" y="414.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">the whole session object graph</text>
+<text x="849" y="414.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">Whole-object state capture</text>
+<line x1="40" y1="388" x2="1140" y2="388" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<rect x="40" y="432" width="1100" height="44" rx="0" fill="#F2F6FA" stroke="#F2F6FA" stroke-width="0"/>
+<text x="49" y="458.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">SensorFeed</text>
+<text x="279" y="458.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">PipedWriter (Writer)</text>
+<text x="529" y="458.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">encoded observation lines</text>
+<text x="849" y="458.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">Blocking hand-off to intake</text>
+<line x1="40" y1="432" x2="1140" y2="432" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<text x="49" y="502.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">SensorIntake</text>
+<text x="279" y="502.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">BufferedReader (Reader)</text>
+<text x="529" y="502.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">parsed and validated events</text>
+<text x="849" y="502.025" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="start" font-weight="normal">readLine() matches the format</text>
+<line x1="40" y1="476" x2="1140" y2="476" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<line x1="40" y1="520" x2="1140" y2="520" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<line x1="270" y1="80" x2="270" y2="520" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<line x1="520" y1="80" x2="520" y2="520" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<line x1="840" y1="80" x2="840" y2="520" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<rect x="40" y="588" width="1100" height="47.0" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="588" width="4" height="47.0" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="602.75" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="606.75" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="606.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">Notice the deliberate split: readable text for people, typed binary for machines, object serialization for</text>
+<text x="71" y="621.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">state, and metadata for discovery. This is the practical answer to "which persistence mechanism should I use?"</text></svg>

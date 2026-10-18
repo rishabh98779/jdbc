@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build intermediates
+*.aux
+*.log
+*.out
+
+# OS
+.DS_Store
+Thumbs.db

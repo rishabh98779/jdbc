@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760"><rect width="1180" height="760" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 23 — The lecture-note Swing login application</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">A small, self-contained example: text fields, a button, an event listener and a database check.</text>
+<rect x="40" y="78" width="520" height="400" rx="8" fill="none" stroke="#2E82AC" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="68.65" width="175.5" height="18.7" rx="4" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<text x="60" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">THE SUPPLIED LOGIN WINDOW</text>
+<rect x="70" y="112" width="460" height="250" rx="10" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.4"/>
+<rect x="70" y="112" width="460" height="34" rx="10" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.4"/>
+<rect x="70" y="132" width="460" height="14" rx="0" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="0"/>
+<text x="300" y="134" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Login</text>
+<text x="100" y="186" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Username</text>
+<rect x="100" y="194" width="400" height="32" rx="6" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1.3"/>
+<text x="110" y="215" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#647589" text-anchor="start" font-weight="normal">operator</text>
+<text x="100" y="254" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="bold">Password</text>
+<rect x="100" y="262" width="400" height="32" rx="6" fill="#FFFFFF" stroke="#2E82AC" stroke-width="1.3"/>
+<text x="110" y="283" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#647589" text-anchor="start" font-weight="normal">••••••••</text>
+<rect x="100" y="312" width="400" height="34" rx="7" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.3"/>
+<text x="300" y="334" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Sign in</text>
+<text x="300" y="386" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#647589" text-anchor="middle" font-weight="normal">JTextField × 2  ·  JButton  ·  JLabel for the result</text>
+<rect x="590" y="78" width="550" height="400" rx="8" fill="none" stroke="#6C5CA8" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="602" y="68.65" width="264.82" height="18.7" rx="4" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<text x="610" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">WHAT THE ORIGINAL PROGRAM ACTUALLY DOES</text>
+<rect x="614" y="112" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="132" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="136" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1</text>
+<text x="654" y="129" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">Build the window</text>
+<text x="654" y="145" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">a JFrame with a JPanel and a null or grid layout</text>
+<rect x="614" y="158" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="178" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="182" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">2</text>
+<text x="654" y="175" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">Register the listener</text>
+<text x="654" y="191" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">signInButton.addActionListener(this) or a lambda</text>
+<rect x="614" y="204" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="224" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="228" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">3</text>
+<text x="654" y="221" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">actionPerformed(event)</text>
+<text x="654" y="237" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">runs on the EDT when the button is pressed</text>
+<rect x="614" y="250" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="270" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="274" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">4</text>
+<text x="654" y="267" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">Read the fields</text>
+<text x="654" y="283" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">String user = userField.getText(); String pass = new String(passField.getPassword());</text>
+<rect x="614" y="296" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="316" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="320" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">5</text>
+<text x="654" y="313" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">Query the database</text>
+<text x="654" y="329" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">typically a SELECT against a users table</text>
+<rect x="614" y="342" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="362" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="366" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">6</text>
+<text x="654" y="359" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">Compare the result</text>
+<text x="654" y="375" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">if a matching row exists → show a welcome message</text>
+<rect x="614" y="388" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="408" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="412" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">7</text>
+<text x="654" y="405" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">Report the outcome</text>
+<text x="654" y="421" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">resultLabel.setText("Login successful") or an error dialog</text>
+<rect x="614" y="434" width="502" height="40" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.1"/>
+<circle cx="634" cy="454" r="11" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="634" y="458" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">8</text>
+<text x="654" y="451" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="start" font-weight="bold">Failure handling</text>
+<text x="654" y="467" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.8" fill="#647589" text-anchor="start" font-weight="normal">a SQLException or a missing driver is the classic failure here</text>
+<rect x="40" y="496" width="1100" height="96" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="517.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#0E1B2C" text-anchor="middle" font-weight="bold">THE SAME PATTERN, SCALED UP</text>
+<text x="590.0" y="533.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">Login: click → listener → SQL query → compare → show message.</text>
+<text x="590.0" y="548.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">BasinWatch: click → listener → engine command → worker → model + SQL → snapshot → invokeLater → repaint.</text>
+<text x="590.0" y="563.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">The shape is identical. BasinWatch adds threads, a bounded queue and immutable snapshots so that the interface</text>
+<text x="590.0" y="578.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">stays responsive while work continues in the background.</text>
+<rect x="40" y="608" width="1100" height="61.599999999999994" rx="6" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.3"/>
+<rect x="40" y="608" width="4" height="61.599999999999994" rx="2" fill="#D9962B" stroke="#D9962B" stroke-width="0"/>
+<circle cx="57" cy="622.6" r="7.5" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="57" y="626.6" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.2" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="625.96" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">COMMON MISTAKE in the lecture version: doing the database query inside actionPerformed() on the EDT. It works</text>
+<text x="71" y="641.1600000000001" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">for one quick local query, but it freezes the window for the duration. A password should also be compared as a</text>
+<text x="71" y="656.36" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.2" fill="#1A2A3D" text-anchor="start" font-weight="normal">hash, never stored or transmitted as plain text — a clarification the notes do not make.</text></svg>

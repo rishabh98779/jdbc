@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="840" viewBox="0 0 1180 840"><rect width="1180" height="840" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 28 — Raw JDBC versus Spring JdbcTemplate</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Same database, same SQL, same JDBC underneath. Different amounts of boilerplate above it.</text>
+<rect x="40" y="78" width="530" height="420" rx="8" fill="none" stroke="#2E82AC" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="52" y="68.65" width="283.96" height="18.7" rx="4" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<text x="60" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#2E82AC" text-anchor="start" font-weight="bold">RAW JDBC  ·  what BasinWatch actually uses</text>
+<rect x="64" y="112" width="482" height="240" rx="8" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.4"/>
+<text x="76" y="134.0" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">try (Connection connection = database.openConnection();</text>
+<text x="76" y="149.6" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">     PreparedStatement statement =</text>
+<text x="76" y="165.2" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">             connection.prepareStatement(sql)) {</text>
+<text x="76" y="180.8" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">    statement.setInt(1, limit);</text>
+<text x="76" y="196.4" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">    try (ResultSet results = statement.executeQuery()) {</text>
+<text x="76" y="212.0" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">        List&lt;DatabaseHistoryEntry&gt; entries = new ArrayList&lt;&gt;();</text>
+<text x="76" y="227.6" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">        while (results.next()) {</text>
+<text x="76" y="243.2" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">            entries.add(new DatabaseHistoryEntry(</text>
+<text x="76" y="258.8" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">                    Instant.parse(results.getString("timestamp")),</text>
+<text x="76" y="274.4" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">                    "SENSOR",</text>
+<text x="76" y="290.0" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">                    results.getString("zone"), …));</text>
+<text x="76" y="305.6" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">        }</text>
+<text x="76" y="321.2" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">        return List.copyOf(entries);</text>
+<text x="76" y="336.79999999999995" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">    }</text>
+<text x="76" y="352.4" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">}</text>
+<text x="64" y="380" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#647589" text-anchor="start" font-weight="normal">15 lines. You own the connection, the statement, the ResultSet,</text>
+<text x="64" y="398" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#647589" text-anchor="start" font-weight="normal">the parameter binding, the row mapping and every close().</text>
+<rect x="64" y="418" width="482" height="66" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="305.0" y="437.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">STRENGTHS</text>
+<text x="305.0" y="452.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">Total control · no framework dependency · explicit resource handling</text>
+<text x="305.0" y="466.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">Explicit transactions in MissionRepository.recordDispatch()</text>
+<rect x="610" y="78" width="530" height="420" rx="8" fill="none" stroke="#6C5CA8" stroke-width="1.3" stroke-dasharray="5 4"/>
+<rect x="622" y="68.65" width="252.05999999999997" height="18.7" rx="4" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<text x="630" y="81.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#6C5CA8" text-anchor="start" font-weight="bold">SPRING JDBC  ·  lecture-note approach</text>
+<rect x="634" y="112" width="482" height="240" rx="8" fill="#F2F6FA" stroke="#DCE4ED" stroke-width="1.4"/>
+<text x="646" y="134.0" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">// configuration</text>
+<text x="646" y="149.6" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#6C5CA8" text-anchor="start" font-weight="normal">@Bean</text>
+<text x="646" y="165.2" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">public DataSource dataSource() {</text>
+<text x="646" y="180.8" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">    DriverManagerDataSource ds = new DriverManagerDataSource();</text>
+<text x="646" y="196.4" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">    ds.setDriverClassName("org.sqlite.JDBC");</text>
+<text x="646" y="212.0" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">    ds.setUrl("jdbc:sqlite:data/basinwatch.db");</text>
+<text x="646" y="227.6" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">    return ds;</text>
+<text x="646" y="243.2" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">}</text>
+<text x="646" y="258.8" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal"></text>
+<text x="646" y="274.4" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">// query</text>
+<text x="646" y="290.0" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#6C5CA8" text-anchor="start" font-weight="normal">return jdbcTemplate.query(</text>
+<text x="646" y="305.6" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">        "SELECT … FROM sensor_readings ORDER BY id DESC LIMIT ?",</text>
+<text x="646" y="321.2" font-family="DejaVu Sans Mono, Courier New, monospace" font-size="9.4" fill="#1A2A3D" text-anchor="start" font-weight="normal">        rowMapper, limit);</text>
+<text x="634" y="380" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#647589" text-anchor="start" font-weight="normal">The template opens and closes the connection, creates the</text>
+<text x="634" y="398" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.4" fill="#647589" text-anchor="start" font-weight="normal">statement, binds arguments and calls next() for you.</text>
+<rect x="634" y="418" width="482" height="66" rx="9" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="875.0" y="437.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#1A2A3D" text-anchor="middle" font-weight="bold">STRENGTHS</text>
+<text x="875.0" y="452.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">Far less repetitive code · automatic resource cleanup</text>
+<text x="875.0" y="466.8" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10" fill="#3F9E7C" text-anchor="middle" font-weight="normal">A RowMapper keeps the mapping in one small class</text>
+<rect x="40" y="516" width="1100" height="96" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="537.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#0E1B2C" text-anchor="middle" font-weight="bold">WHAT DOES NOT CHANGE</text>
+<text x="590.0" y="553.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">Spring JdbcTemplate is not a replacement for JDBC — it is a wrapper around it. Underneath, a Connection is still</text>
+<text x="590.0" y="568.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">opened, a PreparedStatement is still created, parameters are still bound, a ResultSet is still read, and the same</text>
+<text x="590.0" y="583.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">SQLException hierarchy still applies. Learning JDBC first is what makes the abstraction understandable.</text>
+<rect x="40" y="628" width="1100" height="40" rx="0" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1"/>
+<text x="49" y="651.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="start" font-weight="bold"></text>
+<text x="309" y="651.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="start" font-weight="bold">Raw JDBC (BasinWatch)</text>
+<text x="729" y="651.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="start" font-weight="bold">JdbcTemplate (lecture notes)</text>
+<line x1="40" y1="628" x2="1140" y2="628" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<text x="49" y="691.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Boilerplate</text>
+<text x="309" y="691.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">high — you write the try-with-resources</text>
+<text x="729" y="691.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">low — the template handles it</text>
+<line x1="40" y1="668" x2="1140" y2="668" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<rect x="40" y="708" width="1100" height="40" rx="0" fill="#F2F6FA" stroke="#F2F6FA" stroke-width="0"/>
+<text x="49" y="731.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Control</text>
+<text x="309" y="731.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">complete, including transactions</text>
+<text x="729" y="731.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">good, with TransactionTemplate for explicit control</text>
+<line x1="40" y1="708" x2="1140" y2="708" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<text x="49" y="771.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Dependencies</text>
+<text x="309" y="771.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">JDK only</text>
+<text x="729" y="771.85" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="start" font-weight="normal">Spring JDBC plus a DataSource implementation</text>
+<line x1="40" y1="748" x2="1140" y2="748" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<line x1="40" y1="788" x2="1140" y2="788" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<line x1="300" y1="628" x2="300" y2="788" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/>
+<line x1="720" y1="628" x2="720" y2="788" stroke="#DCE4ED" stroke-width="1" stroke-linecap="round"/></svg>

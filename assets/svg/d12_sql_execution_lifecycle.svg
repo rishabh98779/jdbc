@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="900" viewBox="0 0 1180 900"><rect width="1180" height="900" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 14 — The complete JDBC execution lifecycle</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Ten steps from a repository method to mapped objects, following SensorReadingRepository.findRecent().</text>
+<rect x="40" y="78" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="78" width="54" height="72" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.2"/>
+<rect x="80" y="78" width="14" height="72" rx="0" fill="#DFF2EA" stroke="#DFF2EA" stroke-width="0"/>
+<circle cx="67" cy="114" r="15" fill="#3F9E7C" stroke="#3F9E7C" stroke-width="1.4"/>
+<text x="67" y="120" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1</text>
+<text x="112" y="106" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Load / register the driver</text>
+<text x="112" y="128" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">DriverManager finds org.sqlite.JDBC through META-INF/services. In practice this is automatic once the jar is on the classpath.</text>
+<line x1="67" y1="150" x2="67" y2="158" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,158 62.54,149.61 71.46,149.61" fill="#647589"/>
+<rect x="40" y="158" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="158" width="54" height="72" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.2"/>
+<rect x="80" y="158" width="14" height="72" rx="0" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<circle cx="67" cy="194" r="15" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="67" y="200" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">2</text>
+<text x="112" y="186" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Open a Connection</text>
+<text x="112" y="208" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">DatabaseManager.openConnection() calls DriverManager.getConnection("jdbc:sqlite:&lt;path&gt;") and runs PRAGMA busy_timeout / foreign_keys.</text>
+<line x1="67" y1="230" x2="67" y2="238" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,238 62.54,229.61 71.46,229.61" fill="#647589"/>
+<rect x="40" y="238" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="238" width="54" height="72" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.2"/>
+<rect x="80" y="238" width="14" height="72" rx="0" fill="#D9EAF3" stroke="#D9EAF3" stroke-width="0"/>
+<circle cx="67" cy="274" r="15" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="67" y="280" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">3</text>
+<text x="112" y="266" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Create a statement</text>
+<text x="112" y="288" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">connection.prepareStatement(SQL) compiles the SQL once and returns a PreparedStatement.</text>
+<line x1="67" y1="310" x2="67" y2="318" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,318 62.54,309.61 71.46,309.61" fill="#647589"/>
+<rect x="40" y="318" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="318" width="54" height="72" rx="8" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.2"/>
+<rect x="80" y="318" width="14" height="72" rx="0" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<circle cx="67" cy="354" r="15" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="67" y="360" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">4</text>
+<text x="112" y="346" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Bind parameters</text>
+<text x="112" y="368" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">statement.setInt(1, limit) — values are sent separately from the SQL text, so they can never be re-parsed as SQL.</text>
+<line x1="67" y1="390" x2="67" y2="398" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,398 62.54,389.61 71.46,389.61" fill="#647589"/>
+<rect x="40" y="398" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="398" width="54" height="72" rx="8" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.2"/>
+<rect x="80" y="398" width="14" height="72" rx="0" fill="#E8E4F5" stroke="#E8E4F5" stroke-width="0"/>
+<circle cx="67" cy="434" r="15" fill="#6C5CA8" stroke="#6C5CA8" stroke-width="1.4"/>
+<text x="67" y="440" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">5</text>
+<text x="112" y="426" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Execute</text>
+<text x="112" y="448" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">executeQuery() for SELECT (returns a ResultSet) or executeUpdate() for INSERT/UPDATE/DELETE (returns an int).</text>
+<line x1="67" y1="470" x2="67" y2="478" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,478 62.54,469.61 71.46,469.61" fill="#647589"/>
+<rect x="40" y="478" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="478" width="54" height="72" rx="8" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.2"/>
+<rect x="80" y="478" width="14" height="72" rx="0" fill="#FBEFD6" stroke="#FBEFD6" stroke-width="0"/>
+<circle cx="67" cy="514" r="15" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="67" y="520" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">6</text>
+<text x="112" y="506" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Read the ResultSet</text>
+<text x="112" y="528" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">while (results.next()) moves the cursor one row at a time; getString / getDouble read by column name.</text>
+<line x1="67" y1="550" x2="67" y2="558" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,558 62.54,549.61 71.46,549.61" fill="#647589"/>
+<rect x="40" y="558" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="558" width="54" height="72" rx="8" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.2"/>
+<rect x="80" y="558" width="14" height="72" rx="0" fill="#FBEFD6" stroke="#FBEFD6" stroke-width="0"/>
+<circle cx="67" cy="594" r="15" fill="#D9962B" stroke="#D9962B" stroke-width="1.4"/>
+<text x="67" y="600" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">7</text>
+<text x="112" y="586" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Map rows to objects</text>
+<text x="112" y="608" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">Each row becomes an immutable DatabaseHistoryEntry — the JDBC world stops here.</text>
+<line x1="67" y1="630" x2="67" y2="638" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,638 62.54,629.61 71.46,629.61" fill="#647589"/>
+<rect x="40" y="638" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="638" width="54" height="72" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.2"/>
+<rect x="80" y="638" width="14" height="72" rx="0" fill="#F8E0E2" stroke="#F8E0E2" stroke-width="0"/>
+<circle cx="67" cy="674" r="15" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="67" y="680" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">8</text>
+<text x="112" y="666" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Close ResultSet, then statement</text>
+<text x="112" y="688" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">try-with-resources closes them in reverse order, automatically, even if an exception is thrown.</text>
+<line x1="67" y1="710" x2="67" y2="718" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,718 62.54,709.61 71.46,709.61" fill="#647589"/>
+<rect x="40" y="718" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="718" width="54" height="72" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.2"/>
+<rect x="80" y="718" width="14" height="72" rx="0" fill="#F8E0E2" stroke="#F8E0E2" stroke-width="0"/>
+<circle cx="67" cy="754" r="15" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="67" y="760" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">9</text>
+<text x="112" y="746" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Close the Connection</text>
+<text x="112" y="768" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">The outer try-with-resources returns the connection to the pool or, here, releases the SQLite file handle.</text>
+<line x1="67" y1="790" x2="67" y2="798" stroke="#647589" stroke-width="1.4" stroke-linecap="round"/>
+<polygon points="67,798 62.54,789.61 71.46,789.61" fill="#647589"/>
+<rect x="40" y="798" width="1100" height="72" rx="8" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.2"/>
+<rect x="40" y="798" width="54" height="72" rx="8" fill="#F8E0E2" stroke="#C8545C" stroke-width="1.2"/>
+<rect x="80" y="798" width="14" height="72" rx="0" fill="#F8E0E2" stroke="#F8E0E2" stroke-width="0"/>
+<circle cx="67" cy="834" r="15" fill="#C8545C" stroke="#C8545C" stroke-width="1.4"/>
+<text x="67" y="840" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle" font-weight="bold">10</text>
+<text x="112" y="826" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="start" font-weight="bold">Handle SQLException</text>
+<text x="112" y="848" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.6" fill="#33465C" text-anchor="start" font-weight="normal">Any failure is a checked SQLException. DatabaseService converts it into a status message and a failed future.</text></svg>

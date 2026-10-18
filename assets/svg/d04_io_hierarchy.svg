@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="880" viewBox="0 0 1180 880"><rect width="1180" height="880" fill="#FFFFFF"/><text x="40" y="44" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="19" fill="#0E1B2C" text-anchor="start" font-weight="bold">Diagram 6 — The Java I/O class hierarchies</text>
+<text x="40" y="64.5" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#647589" text-anchor="start" font-weight="normal">Four abstract roots. Concrete classes specialise the source or destination.</text>
+<rect x="40" y="76" width="250" height="46" rx="8" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.5"/>
+<text x="165.0" y="98.05" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">InputStream</text>
+<line x1="70" y1="122" x2="70" y2="130" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="70" y1="130" x2="70" y2="138" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="40" y="138" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="165.0" y="155.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">FileInputStream</text>
+<text x="165.0" y="169.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">bytes from a file</text>
+<line x1="70" y1="174" x2="70" y2="182" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="70" y1="182" x2="70" y2="190" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="40" y="190" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="165.0" y="207.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ByteArrayInputStream</text>
+<text x="165.0" y="221.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">bytes from a byte[]</text>
+<line x1="70" y1="226" x2="70" y2="234" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="70" y1="234" x2="70" y2="242" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="40" y="242" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="165.0" y="259.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">PipedInputStream</text>
+<text x="165.0" y="273.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">bytes from a connected pipe</text>
+<line x1="70" y1="278" x2="70" y2="286" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="70" y1="286" x2="70" y2="294" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="40" y="294" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="165.0" y="311.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">FilterInputStream</text>
+<text x="165.0" y="325.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">base for wrappers</text>
+<line x1="70" y1="330" x2="70" y2="338" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="70" y1="338" x2="70" y2="346" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="40" y="346" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="165.0" y="363.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BufferedInputStream</text>
+<text x="165.0" y="377.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">adds a memory buffer</text>
+<line x1="70" y1="382" x2="70" y2="390" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="70" y1="390" x2="70" y2="398" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="40" y="398" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="165.0" y="415.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DataInputStream</text>
+<text x="165.0" y="429.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">reads int / double / UTF</text>
+<line x1="70" y1="434" x2="70" y2="442" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="70" y1="442" x2="70" y2="450" stroke="#2E82AC" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="40" y="450" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="165.0" y="467.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ObjectInputStream</text>
+<text x="165.0" y="481.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">reads serialized objects</text>
+<rect x="320" y="76" width="250" height="46" rx="8" fill="#DFF2EA" stroke="#3F9E7C" stroke-width="1.5"/>
+<text x="445.0" y="98.05" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">OutputStream</text>
+<line x1="350" y1="122" x2="350" y2="130" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="350" y1="130" x2="350" y2="138" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="320" y="138" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="445.0" y="155.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">FileOutputStream</text>
+<text x="445.0" y="169.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">bytes to a file</text>
+<line x1="350" y1="174" x2="350" y2="182" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="350" y1="182" x2="350" y2="190" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="320" y="190" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="445.0" y="207.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ByteArrayOutputStream</text>
+<text x="445.0" y="221.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">grows an in-memory byte[]</text>
+<line x1="350" y1="226" x2="350" y2="234" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="350" y1="234" x2="350" y2="242" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="320" y="242" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="445.0" y="259.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">PipedOutputStream</text>
+<text x="445.0" y="273.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">bytes to a connected pipe</text>
+<line x1="350" y1="278" x2="350" y2="286" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="350" y1="286" x2="350" y2="294" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="320" y="294" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="445.0" y="311.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">FilterOutputStream</text>
+<text x="445.0" y="325.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">base for wrappers</text>
+<line x1="350" y1="330" x2="350" y2="338" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="350" y1="338" x2="350" y2="346" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="320" y="346" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="445.0" y="363.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BufferedOutputStream</text>
+<text x="445.0" y="377.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">adds a memory buffer</text>
+<line x1="350" y1="382" x2="350" y2="390" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="350" y1="390" x2="350" y2="398" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="320" y="398" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="445.0" y="415.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">DataOutputStream</text>
+<text x="445.0" y="429.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">writes int / double / UTF</text>
+<line x1="350" y1="434" x2="350" y2="442" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="350" y1="442" x2="350" y2="450" stroke="#3F9E7C" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="320" y="450" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="445.0" y="467.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">ObjectOutputStream</text>
+<text x="445.0" y="481.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">writes serialized objects</text>
+<rect x="610" y="76" width="250" height="46" rx="8" fill="#FBEFD6" stroke="#D9962B" stroke-width="1.5"/>
+<text x="735.0" y="98.05" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Reader</text>
+<line x1="640" y1="122" x2="640" y2="130" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="640" y1="130" x2="640" y2="138" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="610" y="138" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="735.0" y="155.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">FileReader</text>
+<text x="735.0" y="169.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">characters from a file</text>
+<line x1="640" y1="174" x2="640" y2="182" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="640" y1="182" x2="640" y2="190" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="610" y="190" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="735.0" y="207.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">InputStreamReader</text>
+<text x="735.0" y="221.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">bytes → characters</text>
+<line x1="640" y1="226" x2="640" y2="234" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="640" y1="234" x2="640" y2="242" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="610" y="242" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="735.0" y="259.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BufferedReader</text>
+<text x="735.0" y="273.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">readLine() and buffering</text>
+<line x1="640" y1="278" x2="640" y2="286" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="640" y1="286" x2="640" y2="294" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="610" y="294" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="735.0" y="311.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">PipedReader</text>
+<text x="735.0" y="325.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">characters from a connected pipe</text>
+<line x1="640" y1="330" x2="640" y2="338" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="640" y1="338" x2="640" y2="346" stroke="#D9962B" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="610" y="346" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="735.0" y="363.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">StringReader</text>
+<text x="735.0" y="377.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">characters from a String</text>
+<rect x="890" y="76" width="250" height="46" rx="8" fill="#E8E4F5" stroke="#6C5CA8" stroke-width="1.5"/>
+<text x="1015.0" y="98.05" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#1A2A3D" text-anchor="middle" font-weight="bold">Writer</text>
+<line x1="920" y1="122" x2="920" y2="130" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="920" y1="130" x2="920" y2="138" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="890" y="138" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="1015.0" y="155.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">FileWriter</text>
+<text x="1015.0" y="169.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">characters to a file</text>
+<line x1="920" y1="174" x2="920" y2="182" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="920" y1="182" x2="920" y2="190" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="890" y="190" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="1015.0" y="207.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">OutputStreamWriter</text>
+<text x="1015.0" y="221.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">characters → bytes</text>
+<line x1="920" y1="226" x2="920" y2="234" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="920" y1="234" x2="920" y2="242" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="890" y="242" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="1015.0" y="259.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">BufferedWriter</text>
+<text x="1015.0" y="273.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">buffering and newLine()</text>
+<line x1="920" y1="278" x2="920" y2="286" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="920" y1="286" x2="920" y2="294" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="890" y="294" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="1015.0" y="311.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">PipedWriter</text>
+<text x="1015.0" y="325.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">characters to a connected pipe</text>
+<line x1="920" y1="330" x2="920" y2="338" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="920" y1="338" x2="920" y2="346" stroke="#6C5CA8" stroke-width="1.4" stroke-linecap="round"/>
+<rect x="890" y="346" width="250" height="42" rx="7" fill="#FFFFFF" stroke="#DCE4ED" stroke-width="1.5"/>
+<text x="1015.0" y="363.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">StringWriter</text>
+<text x="1015.0" y="377.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="9.5" fill="#647589" text-anchor="middle" font-weight="normal">characters into a String</text>
+<rect x="40" y="500" width="1100" height="47.0" rx="6" fill="#D9EAF3" stroke="#2E82AC" stroke-width="1.3"/>
+<rect x="40" y="500" width="4" height="47.0" rx="2" fill="#2E82AC" stroke="#2E82AC" stroke-width="0"/>
+<circle cx="57" cy="514.75" r="7.5" fill="#2E82AC" stroke="#2E82AC" stroke-width="1.4"/>
+<text x="57" y="518.75" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
+<text x="71" y="518.2" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">The four roots are abstract. You never write new InputStream(); you choose a concrete source or destination.</text>
+<text x="71" y="533.7" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#1A2A3D" text-anchor="start" font-weight="normal">Wrapper classes take another stream in their constructor — that is what makes layering possible (see Diagram 5).</text>
+<rect x="40" y="596" width="1100" height="118" rx="9" fill="#0E1B2C" stroke="#0E1B2C" stroke-width="1.5"/>
+<text x="590.0" y="617.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="13" fill="#0E1B2C" text-anchor="middle" font-weight="bold">THE DECORATOR PATTERN IN ONE SENTENCE</text>
+<text x="590.0" y="633.9" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="middle" font-weight="normal">A concrete stream (FileOutputStream) supplies the destination. Each wrapper (BufferedOutputStream,</text>
+<text x="590.0" y="649.4" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="middle" font-weight="normal">DataOutputStream) adds exactly one responsibility and passes everything else through to the stream it wraps.</text>
+<text x="590.0" y="664.9" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11.5" fill="#33465C" text-anchor="middle" font-weight="normal">The result is a chain that behaves like one stream but performs several jobs.</text>
+<rect x="40" y="730" width="1100" height="110" rx="9" fill="#EDF2F7" stroke="#647589" stroke-width="1.5"/>
+<text x="590.0" y="751.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="12.5" fill="#1A2A3D" text-anchor="middle" font-weight="bold">HOW BASINWATCH LAYERS THEM</text>
+<text x="590.0" y="767.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">SnapshotStore.save():  byte[] payload  →  BufferedOutputStream( Files.newOutputStream(temp) )</text>
+<text x="590.0" y="782.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">SensorArchive():       SensorReading  →  DataOutputStream( BufferedOutputStream( file ) )</text>
+<text x="590.0" y="797.0" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-size="11" fill="#33465C" text-anchor="middle" font-weight="normal">BasinEngine feed:      PipedWriter  →  PipedReader(8192)  →  BufferedReader</text></svg>
